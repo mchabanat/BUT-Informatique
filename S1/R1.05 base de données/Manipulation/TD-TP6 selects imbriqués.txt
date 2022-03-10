@@ -1,0 +1,121 @@
+/* MODIFICATION SCHEMA */
+
+/* Création de la table gagnerj */
+CREATE TABLE gagnerj
+(
+	numeroJoueur NUMBER(4),
+	numeroCompet NUMBER(4),
+	FOREIGN KEY (numeroJoueur) REFERENCES joueur(numero),
+	FOREIGN KEY (numeroCompet) REFERENCES competition(numero),
+	PRIMARY KEY (numeroJoueur,numeroCompet)
+);
+
+/* Modification de la table Competition */
+ALTER TABLE competition
+ADD numEquipeGagnant NUMBER(4);
+
+ALTER TABLE competition
+ADD FOREIGN KEY (numEquipeGagnant) REFERENCES equipe(numero);
+
+
+/* REQUETES */
+
+/* Requêtes décorrélées */
+/* Nom des équipes ayant un budget supérieur à la moyenne des budgets */
+SELECT nom
+FROM equipe
+WHERE budget < (
+	SELECT AVG(budget)
+	FROM equipe);
+
+/* Nom des équipes ayant un budget inférieur à ceux des équipes "FC Barcelone", "Bayern Munich" et "Real Madrid" */
+SELECT nom
+FROM equipe
+WHERE budget < (
+	SELECT budget FROM equipe WHERE numero = 3333)
+AND budget < (
+	SELECT budget FROM equipe WHERE numero = 4444)
+AND budget < (
+	SELECT budget FROM equipe WHERE numero = 555);
+
+
+/* Nom des joueurs ayant un nombre de séléctions supérieur à au moins un des joueurs de l'équipe "Paris St-Germain" */
+SELECT nom 
+FROM joueur
+WHERE nbSelecNat > ANY (
+	SELECT nbSelecNat 
+	FROM joueur
+	WHERE numeroEquipe = ANY ( 
+		SELECT numero
+		FROM equipe
+		WHERE nom='Paris St-Germain'));
+
+/* Jointures */
+/* Nom des joueurs de l'équipe "Manchester City" */
+SELECT j.nom
+FROM joueur j
+JOIN equipe e ON e.numero=j.numeroEquipe
+WHERE e.nom = 'Manchester City';
+
+/* Nom des joueurs ayant remporté la compétition "Ligue 1" */
+SELECT j.nom
+FROM gagnerj g
+JOIN joueur j ON j.numero=g.numeroJoueur
+GROUP BY j.Nom;
+
+/* Jointures externes */
+/* Nom des équipes n'ayant pas gagné la compétition "Ligue 1" */
+SELECT e.nom
+FROM equipe e
+JOIN participer p ON e.numero=p.numeroEquipe
+JOIN competition c ON c.numero=p.numeroCompet
+WHERE c.nom='Ligue 1' AND p.resultat > 1;
+
+/* Nom des équipes n'ayant aucun titre */
+SELECT e.nom
+FROM equipe e
+JOIN participer p ON e.numero=p.numeroEquipe
+JOIN competition c ON c.numero=p.numeroCompet
+WHERE p.resultat > 1;
+
+/* Nom et prénom des joueurs n'ayant pas gagné la competition "Ligue 1" */
+SELECT j.nom,j.prenom
+FROM joueur j
+WHERE j.numero NOT IN (
+	SELECT j.nom
+	FROM gagnerj g 
+	JOIN joueur j ON j.numero=g.numeroJoueur
+	JOIN competition c ON c.numero=g.numeroCompet
+	WHERE j.numero = g.numeroJoueur
+	AND c.type = 'Ligue 1');
+
+/* Nom et prénom des joueurs n'ayant aucun titre */
+SELECT j.nom,j.prenom
+FROM joueur j
+WHERE j.code NOT IN (
+	SELECT j.nom
+	FROM gagnerj g
+	JOIN joueur j ON j.numero=g.numeroJoueur
+	WHERE j.numero = g.numeroJoueur);
+
+
+/* Nom des équipes n'ayant pas gagné de compétition de type "coupe" */
+SELECT e.nom
+FROM equipe e
+WHERE e.numero NOT IN (
+	SELECT e.nom 
+	FROM equipe 
+	JOIN participer p ON e.numero=p.numeroEquipe
+	JOIN competition c ON c.numero=p.numeroCompet
+	WHERE e.code = c.numEquipeGagnant
+	AND c.type = 'coupe');
+
+/* Nom et prénom des joueurs n'ayant pas gagné de competition de type "coupe" */
+SELECT j.nom,j.prenom
+FROM gagnerj g
+JOIN joueur j ON j.numero=g.numeroJoueur
+JOIN competition c ON c.numero=g.numeroCompet
+WHERE g.numeroJoueur != j.numero
+AND g.numeroCompet != c.numero
+AND c.type='Coupe'
+GROUP BY j.nom;

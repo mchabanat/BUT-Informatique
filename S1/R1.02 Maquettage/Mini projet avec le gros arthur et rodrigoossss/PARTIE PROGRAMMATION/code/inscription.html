@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="shortcut icon" href="images/logo.png">
+    <title>MAJ Clothing</title>
+</head>
+<body>
+    <!-- Haut de page -->
+    <div class="barre">
+        <div class="langues">
+            <a href="#"><img class="flag" src="images/drapeau-fr.jpg" alt="Mettre en français"></a>
+            <a href="#"><img class="flag" src="images/drapeau-en.png" alt="Mettre en anglais"></a>
+            <a href="#"><img id="loupe" src="images/loupe.png" alt="rechercher" width="50" height="50"></a>
+        </div>
+        <div class="logo">
+            <a href="index.html"><img id="logoMAJ" src="images/logo.png" alt="logo MAJ"></a>
+        </div>
+        <div class="bouton">
+            <a class="connexion" href="inscription.html">INSCRIPTION</a>
+            <a class="connexion" href="#">CONNEXION</a>
+            <a href="panier.html"><img id="cart" src="images/cart.png" alt="panier piano" ></a>
+        </div>
+    </div>
+    
+    <!-- Barre de navigation -->
+    <div id = "barreNavContainer">
+        <div id="barreNav">
+            <div class="buttonBarreNav" href ="#"><a href="index.html">Accueil</a></div>
+            <div class="buttonBarreNav" href ="#"><a href="#">Produits</a></div>
+            <div class="buttonBarreNav" href ="#"><a href="#">Promotions</a></div>
+            <div class="buttonBarreNav" href ="#"><a href="#">Informations</a></div>
+        </div>
+    </div>
+
+    <!-- Formulaire d'inscription -->
+    <div class="formulaire">
+        <h2 class="categorieName">S'inscrire</h2>
+        <form action="#">
+            <div class="sexe">
+                <input type="radio" name="type" id="man">
+                <label for="man">M </label>
+
+                <input type="radio" name="type" id="woman">
+                <label for="woman">Mme </label>
+            </div>
+            <div class="prenom">
+                <h5>Prénom</h5>
+                <label for="firstName"></label>
+                <input id="firstName" type="text">
+            </div>
+            <div class="nom">
+                <h5>Nom</h5>
+                <label for="name"></label>
+                <input id="name" type="text">
+            </div>
+            <div class="email">
+                <h5>Email</h5>
+                <label for="email"></label>
+                <input id="email" type="text">
+            </div>
+            <div class="password">
+                <h5>Mot de passe</h5>
+                <label for="password"></label>
+                <input id="password" type="password">
+            </div>
+            <div class="password">
+                <h5>Confirmation mot de passe</h5>
+                <label for="confirmPassword"></label>
+                <input id="confirmPassword" type="password">
+            </div>
+        </form>
+        <div class="conditionUtil">
+            <label><input type="checkbox">J'accepte les <a id="conditions" href="#">conditions générales et la politique de confidentialité</a></label>
+            
+        </div>
+        <div class="boutonValider">
+            <input type="submit" value="Enregistrer">
+        </div>        
+    </div>
+
+    <footer>
+        <div class="social">
+            <a href="#"><i class="icon ion-social-instagram"></i></a>
+            <a href="#"><i class="icon ion-social-twitter"></i></a>
+            <a href="#"><i class="icon ion-social-facebook"></i></a>
+        </div>
+        <div class="rubriques">
+            <ul class="list-inline">
+                <li class="list-item"><a href="#">Informations</a></li>
+                <li class="list-item"><a href="#">Retours</a></li>
+                <li class="list-item"><a href="#">Mon compte</a></li>
+                <li class="list-item"><a href="#">Nos magasins</a></li>
+                <li class="list-item"><a href="#">Mentions légales</a></li>
+            </ul>
+            <p class="copyright">MAJ Clothing © 2022</p>
+        </div>
+    </footer>
+</body>
+</html>

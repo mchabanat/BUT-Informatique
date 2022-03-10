@@ -1,0 +1,55 @@
+1 )
+- Program Specification
+- Program design
+- Program code
+- Program test
+- Program documentation
+- Program maintenance
+
+2 )
+Program code because for me it's the best part of 
+the development of an application.
+
+3 )
+No because computer undestand machine code 
+(binary language) .
+
+4 )
+It’s piece of the code who translates the 
+program to machine code
+
+5 )
+It has been developped to make a easier way to code
+
+6 )
+An interpreter reads a lign of the code, he
+translates on machine code and send it to the 
+processor. He does it lign by lign.
+
+A compiler reads a lign of the code, he translates 
+on machine code and when he translates all the code,
+he send it to the processor.
+
+
+--------------------
+
+1 ⇒ F
+2 ⇒ C
+3 ⇒ A
+4 ⇒ D
+5 ⇒ E
+6 ⇒ B
+7 ⇒ G
+
+1. programming
+2. program
+3. programmers
+4. Programmable
+
+5. compilation 
+6. compiler 
+7. compiler
+
+8. bug
+9. debugger 
+10. debugging

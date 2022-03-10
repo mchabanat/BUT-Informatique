@@ -1,0 +1,53 @@
+/* Afficher la liste des nationalités des joueurs (chaque nationalite n'apparait qu'une seule fois */
+SELECT nationalite
+FROM joueur
+GROUP BY nationalite;
+
+/* Afficher liste des equipes equipe1 (PSG),equipe2 (Man City) et equipe3 (Barca) */
+/* SOLUTION 1 */
+SELECT nom,capaciteStade,budget
+FROM equipe
+WHERE nom='Paris St-Germain' OR nom='Manchester City' OR nom='FC Barcelone';
+
+/* SOLUTION 2 */
+SELECT nom,capaciteStade,budget
+FROM equipe
+WHERE numero <= 3333 AND numero >=1111;
+
+/* Afficher la liste des joueurs dont leurs prenoms se finissent par O */
+SELECT nom,prenom
+FROM joueur
+WHERE nom LIKE '%o';
+
+/* Afficher le nombre de nationalités différentes */
+SELECT COUNT(DISTINCT nationalite)
+FROM joueur;
+
+/* Afficher la liste des joueurs de l'equipe 1 (Paris St Germain) */
+SELECT *
+FROM joueur
+WHERE numeroEquipe=1111;
+
+/* Afficher le nombre des joueurs de l'equipe 1 (Paris St Germain) */
+SELECT COUNT(*)
+FROM joueur
+WHERE numeroEquipe=1111;
+
+/* Afficher le total des selections en equipe nationale des joueurs du PSG */
+SELECT SUM(nbSelecNat)
+FROM joueur
+WHERE numeroEquipe=1111;
+
+/* Afficher liste des equipes dont le stade a une capacite comprise entre 30k et 40k */
+SELECT nom,capaciteStade 
+FROM equipe
+WHERE capaciteStade < 40000 AND capaciteStade > 30000;
+
+/* Afficher la capacite moyenne des stades */
+SELECT AVG(capaciteStade)
+FROM equipe;
+
+/* Afficher la somme des budgets */
+SELECT SUM(budget)
+FROM equipe;
+

@@ -1,0 +1,31 @@
+created by Jess Clife and Minh Le in august of 2012 
+developped by Valve and published on the famous gaming platform steam
+the game is only playable on computer and is intended for competitive players (not kids)
+
+
+- online game 
+- FPS (First Personal Shooter)
+- a game lasts about 45 minutes 
+	-> you can play CSGO several times
+- 5v5 (terrorists and counter terrorists)
+- goal : terro -> plant the bomb and kill the ennemies
+	    CT -> defuse the bomb or stop terrorists for planting the bomb killing them
+- difficulties : -> have a good aim
+		 -> be concentrated during 45 min
+		 -> be coordinated with your team
+
+weapons : most famous are the AK-47 (terrorists)
+			  the M4A4 (CT)
+			  the AWP (sniper)
+ranks
+
+Advantages : 
+	-> Settings optimization give you better performences like more FPS
+	-> a big computer is not necessary
+Disadvantages :
+	-> Bad graphics
+	-> too many drunks russians on the games :)
+	-> can be very funny but we can rage a lot (russians)
+
+Conclusion : first counter strike game -> new game format
+	     2020 valorant same rules 

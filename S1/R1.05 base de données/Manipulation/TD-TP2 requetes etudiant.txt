@@ -1,0 +1,36 @@
+/* Modification du schema en ajouant 2 attriubuts a la table ETUDIANT */
+
+ALTER TABLE etudiant
+ADD (annee NUMBER(1));
+
+ALTER TABLE etudiant
+ADD (parcours VARCHAR2(5));
+
+
+/* Mise a jour de annee pou tous les tuples */
+
+UPDATE etudiant
+SET annee = 1;
+
+
+/* Supprimer tous les etudiants du groupe TP 5 */
+
+DELETE FROM etudiant
+WHERE groupeTp = 5;
+
+
+/* Supprimer l'attribut parcours */
+
+ALTER TABLE etudiant
+DROP(parcours);
+
+
+/* Modification de l'attribut prenom */
+
+ALTER TABLE etudiant
+MODIFY(prenom VARCHAR2(35));
+
+
+/* Suppression de la table etudiant */
+
+DROP TABLE etudiant; 

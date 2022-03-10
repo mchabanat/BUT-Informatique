@@ -1,0 +1,15 @@
+2) Acteurs : 
+- Direction du lycée 
+- Les parents d'élèves  
+- Le secrétaire 
+
+- (secondaire) Le système de paiement bancaire
+
+3) Cas d'utilisation :
+Le directeur du lycée : fournir les informations 
+Le secrétaire de l'association : gérer l'association
+Les parents : - participer à l'association
+	      - adhérer à l'association
+
+Systeme de paiement : participe à l'adhésion des parents
+

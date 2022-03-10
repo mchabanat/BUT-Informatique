@@ -1,0 +1,69 @@
+/* AFFICHER TOUTES LES TABLES DE LA BD */
+SELECT table_name FROM user_tables;
+
+/* CREATION DE LA TABLE ETUDIANT */
+
+CREATE TABLE etudiant
+(
+	code NUMBER(4) PRIMARY KEY NOT NULL,
+	nom VARCHAR2(50) NOT NULL,
+	prenom VARCHAR2(50) NOT NULL,
+	genre VARCHAR2(15),
+	dateNaiss DATE,
+	groupeTd NUMBER(1),
+	groupeTp NUMBER(1)
+);
+
+/* INSERTION D'OCCURRENCES DANS LA TABLE */
+
+
+INSERT INTO etudiant
+VALUES (5698,'Dubois','Arnaud','masculin','23-04-1972',1,1);
+
+INSERT INTO etudiant
+VALUES (2047,'Rousseau','Maxime','masculin','05-06-2004',1,1);
+
+INSERT INTO etudiant
+VALUES (1011,'Abdelhak','Yanis','masculin','25-03-2003',1,2);
+
+INSERT INTO etudiant
+VALUES (1882,'Rocha','Clara','feminin','12-09-2002',1,2);
+
+INSERT INTO etudiant
+VALUES (3695,'Lambert','Lea','feminin','11-11-1995',2,3);
+
+INSERT INTO etudiant
+VALUES (1702,'Chabanat','Matis','masculin','17-02-2002',2,3);
+
+INSERT INTO etudiant
+VALUES (0147,'Blanc','Amelie','feminin','13-08-2002',2,4);
+
+INSERT INTO etudiant
+VALUES (8520,'Perrin','Maxime','masculin','25-03-2002',2,4);
+
+INSERT INTO etudiant
+VALUES (9654,'Riviere','Anna','feminin','28-02-2002',3,5);
+
+INSERT INTO etudiant
+VALUES (3214,'Lemoine','Lionel','masculin','15-01-1992',3,5);
+
+/* REQUETES */
+
+SELECT nom,prenom 
+FROM etudiant;
+
+SELECT *
+FROM etudiant
+WHERE groupeTd = 3;
+
+SELECT nom,prenom
+FROM etudiant
+WHERE groupeTd = 2;
+
+SELECT nom,prenom
+FROM etudiant
+WHERE groupeTp = 1 OR groupeTp = 5;
+
+SELECT nom,prenom
+FROM etudiant
+WHERE genre = 'feminin' AND groupeTp = 4;

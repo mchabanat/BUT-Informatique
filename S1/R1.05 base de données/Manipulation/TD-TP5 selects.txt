@@ -1,0 +1,64 @@
+/* Afficher la capacité du stade le plus petit */
+SELECT MIN(capaciteStade)
+FROM equipe;
+
+/* Afficher le budget le plus important */
+SELECT MAX(budget)
+FROM equipe;
+
+/* Afficher la liste des joueurs (nom,prenom) triée par ordre alphabétique */
+SELECT nom,prenom
+FROM joueur
+ORDER BY nom;
+
+/* Afficher la liste des equipes (nom, capacité) triée par capacité de stade décroissante */
+SELECT nom,capaciteStade
+FROM equipe
+ORDER BY capaciteStade DESC;
+
+/* Afficher le nombre de joueurs par equipe */
+SELECT e.nom,COUNT(*)
+FROM joueur
+JOIN equipe e ON numeroEquipe=e.numero
+GROUP BY e.nom;
+
+/* Afficher la liste des equipes (nom) participant à la compétition "Ligue 1" */
+SELECT e.nom
+FROM equipe e
+JOIN participer p ON e.numero=p.numeroEquipe
+JOIN competition c ON c.numero=p.numeroCompet
+WHERE c.nom='Ligue 1';
+
+/* Afficher la liste des equipes (nom) encore qualifiées pour la competition "Ligue des Champions" */
+SELECT e.nom
+FROM equipe e
+JOIN participer p ON e.numero=p.numeroEquipe
+JOIN competition c ON c.numero=p.numeroCompet
+WHERE resultat = 0;
+
+/* Afficher le classement de la competition " " (rang, nom equipe) */
+SELECT e.nom
+FROM equipe e
+JOIN participer p ON e.numero=p.numeroEquipe
+JOIN competition c ON c.numero=p.numeroCompet
+WHERE c.nom='Liga';
+
+/* Afficher la liste des joueurs (nom) ayant un ou plusieurs homonymes */
+SELECT nom 
+FROM joueur 
+GROUP BY nom
+HAVING COUNT(nom)>1;
+
+/* Afficher le nom de l'équipe ayant le stade le plus petit */
+SELECT nom
+FROM equipe
+WHERE capaciteStade=(
+	SELECT MIN(capaciteStade)
+	FROM equipe);
+
+/* Afficher le nom de l'équipe ayant le budget le plus important */
+SELECT nom
+FROM equipe
+WHERE budget=(
+	SELECT MAX(budget)
+	FROM equipe);

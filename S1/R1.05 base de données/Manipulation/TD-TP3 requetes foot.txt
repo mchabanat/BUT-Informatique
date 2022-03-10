@@ -1,0 +1,160 @@
+/* CREATION TABLE joueur */
+
+CREATE TABLE joueur
+(
+	numero NUMBER(4) PRIMARY KEY NOT NULL,
+	nom VARCHAR2(50),
+	prenom VARCHAR2(50),
+	nationalite VARCHAR2(25),
+	numeroEquipe NUMBER(4),
+	nbSelecNat NUMBER(4),
+	FOREIGN KEY (numeroEquipe) REFERENCES Equipe (numero)
+);
+
+
+/* CREATION TABLE equipe */
+
+CREATE TABLE equipe
+(
+	numero NUMBER(4) PRIMARY KEY NOT NULL,
+	nom VARCHAR2(50),
+	capaciteStade NUMBER(10),
+	budget NUMBER(10)
+);
+
+
+/* Peuplement de la table Equipe avec 5 joueurs par equipe*/
+INSERT INTO equipe
+VALUES (1111,'Paris St-Germain',50000,600000000);
+
+INSERT INTO joueur
+VALUES (7,'Mbappé','Kylian','France',1111,24);
+INSERT INTO joueur
+VALUES (6,'Verratti','Marco','Italie',1111,45);
+INSERT INTO joueur
+VALUES (10,'Neymar','Jr','Bresil',1111,61);
+INSERT INTO joueur
+VALUES (4,'Ramos','Sergio','Espagne',1111,81);
+INSERT INTO joueur
+VALUES (30,'Messi','Lionel','Argentine',1111,108);
+
+
+INSERT INTO equipe
+VALUES (2222,'Manchester City',55100,569000000);
+
+INSERT INTO joueur
+VALUES (017,'De Bruyne','Kevin','Belgique',2222,44);
+INSERT INTO joueur
+VALUES (077,'Sterling','Raheem','Angleterre',2222,25);
+INSERT INTO joueur
+VALUES (22,'Mendy','Benjamin','France',2222,8);
+INSERT INTO joueur
+VALUES (033,'Carson','Scott','Angleterre',2222,57);
+INSERT INTO joueur
+VALUES (02,'Walker','Kyle','Angleterre',2222,8);
+
+
+INSERT INTO equipe
+VALUES (3333,'FC Barcelone',99000,828000000);
+
+INSERT INTO joueur
+VALUES (110,'Aguero','Sergio','Argentine',3333,75);
+INSERT INTO joueur
+VALUES (3,'Pique','Gerard','Espagne',3333,99);
+INSERT INTO joueur
+VALUES (5,'Busquets','Sergio','Espagne',3333,23);
+INSERT INTO joueur
+VALUES (18,'Alba','Jordi','Espagne',3333,38);
+INSERT INTO joueur
+VALUES (23,'Umtiti','Samuel','France',3333,18);
+
+
+INSERT INTO equipe
+VALUES (4444,'Bayern Munich',75000,314000000);
+
+INSERT INTO joueur
+VALUES (25,'Muller','Thomas','Allemagne',4444,51);
+INSERT INTO joueur
+VALUES (9,'Lewandowski','Robert','Pologne',4444,56);
+INSERT INTO joueur
+VALUES (1,'Neuer','Manuel','Allemagne',4444,87);
+INSERT INTO joueur
+VALUES (13,'Choupo Moting','Eric Maxim','Cameroun',4444,11);
+INSERT INTO joueur
+VALUES (024,'Tolisso','Corentin','France',4444,59);
+
+
+INSERT INTO equipe
+VALUES (555,'Real Madrid',81000,692000000);
+
+INSERT INTO joueur
+VALUES (0109,'Benzema','Karim','France',555,32);
+INSERT INTO joueur
+VALUES (0418,'Bale','Gareth','Pays de Galles',555,28);
+INSERT INTO joueur
+VALUES (0074,'Hazard','Eden','Belgique',555,77);
+INSERT INTO joueur
+VALUES (0124,'Courtois','Thibaut','Belgique',555,91);
+INSERT INTO joueur
+VALUES (15,'Modric','Luka','Croatie',555,66);
+
+
+/* CREATION DE LA TABLE competition */
+
+CREATE TABLE competition
+(
+	numero NUMBER(4) PRIMARY KEY NOT NULL,
+	nom VARCHAR2(50),
+	type VARCHAR2(15),
+	saison VARCHAR2(10)
+);
+
+/* Peuplement de la table competition */
+
+INSERT INTO competition
+VALUES (987,'Ligue 1','Championnat','2021-2022');
+INSERT INTO competition
+VALUES (654,'Ligue des Champions','Coupe','2021-2022');
+INSERT INTO competition
+VALUES (321,'Liga','Championnat','2021-2022');
+INSERT INTO competition
+VALUES (147,'Premier League','Championnat','2021-2022');
+INSERT INTO competition
+VALUES (258,'Coupe du Roi','Coupe','2021-2022');
+
+
+/* CREATION DE LA TABLE participer */
+
+CREATE TABLE participer
+(
+	numeroEquipe NUMBER(4),
+	numeroCompet NUMBER(4),
+	resultat NUMBER(6),
+	FOREIGN KEY (numeroEquipe) REFERENCES equipe(numero),
+	FOREIGN KEY (numeroCompet) REFERENCES competition(numero),
+	PRIMARY KEY (numeroEquipe,numeroCompet)
+);
+
+/* Peuplement de la table participer */
+INSERT INTO participer
+VALUES (1111,987,2);
+INSERT INTO participer
+VALUES (1111,654,3); /* 3 car ils ont perdu en demi finale */
+
+INSERT INTO participer
+VALUES (2222,147,1);
+INSERT INTO participer 
+VALUES (2222,654,2); /* 2 car ils ont perdu en finale */
+
+INSERT INTO participer
+VALUES (3333,321,3);
+INSERT INTO participer
+VALUES (3333,654,9); /* 9 car ils ont perdu en 8es de finale */
+
+INSERT INTO participer
+VALUES (4444,654,5); /* 5 car ils ont perdu en quarts de finale */
+
+INSERT INTO participer
+VALUES (555,321,2);
+INSERT INTO participer
+VALUES (555,654,3); /* 3 car ils ont perdu en demi finale */

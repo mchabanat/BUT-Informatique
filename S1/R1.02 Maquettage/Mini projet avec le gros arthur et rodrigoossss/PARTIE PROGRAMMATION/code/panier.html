@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="shortcut icon" href="images/logo.png">
+    <title>MAJ Clothing</title>
+</head>
+
+<body>
+    <!-- Haut de page -->
+    <div class="barre">
+        <div class="langues">
+            <a href="#"><img class="flag" src="images/drapeau-fr.jpg" alt="Mettre en français"></a>
+            <a href="#"><img class="flag" src="images/drapeau-en.png" alt="Mettre en anglais"></a>
+            <a href="#"><img id="loupe" src="images/loupe.png" alt="rechercher" width="50" height="50"></a>
+        </div>
+        <div class="logo">
+            <a href="index.html"><img id="logoMAJ" src="images/logo.png" alt="logo MAJ"></a>
+        </div>
+        <div class="bouton">
+            <a class="connexion" href="inscription.html">INSCRIPTION</a>
+            <a class="connexion" href="#">CONNEXION</a>
+            <a href="panier.html"><img id="cart" src="images/cart.png" alt="panier piano"></a>
+        </div>
+    </div>
+
+    <!-- Barre de navigation -->
+    <div id="barreNavContainer">
+        <div id="barreNav">
+            <div class="buttonBarreNav" href="#"><a href="index.html">Accueil</a></div>
+            <div class="buttonBarreNav" href="#"><a href="#">Produits</a></div>
+            <div class="buttonBarreNav" href="#"><a href="#">Promotions</a></div>
+            <div class="buttonBarreNav" href="#"><a href="#">Informations</a></div>
+        </div>
+    </div>
+
+    <!-- Panier -->
+    <div class="panier">
+        <h2 class="categorieName"> Panier </h2>
+        <div class="categoriePanier">
+            <div class="articles">
+                <div class="articlesDuPanier">
+                    <div class="infoArticle">
+                        <img class="imageDuProduit" src="images/produit1.jfif" />
+                        <h3 class="nomProduitPanier"> Produit 1 </h3>
+                        <p class="produitDescriptifpanier"> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Laudantium quas tempore quam.</p>
+                    </div>
+                    <div class="gestionDesArticles">
+                        <div>
+                            <label for="nombrearticles"></label>
+                            <input id="nombrearticles" type="number" min="1" max="10" step="1" value="1"><br>
+                        </div>
+                        <div>
+                            <a href="#"><img class="Poubel" src="images/poubelle.png" alt="Suprimmer l'articles"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="articlesDuPanier">
+                    <div class="infoArticle">
+                        <img class="imageDuProduit" src="images/produit2.jpg" />
+                        <h3 class="nomProduitPanier"> Produit 2 </h3>
+                        <p class="produitDescriptifpanier"> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Laudantium quas tempore quam.</p>
+                    </div>
+                    <div class="gestionDesArticles">
+                        <div>
+                            <label for="nombrearticles"></label>
+                            <input id="nombrearticles" type="number" min="1" max="10" step="1" value="1"><br>
+                        </div>
+                        <div>
+                            <a href="#"><img class="Poubel" src="images/poubelle.png" alt="Suprimmer l'articles"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="articlesDuPanier">
+                    <div class="infoArticle">
+                        <img class="imageDuProduit" src="images/produit3.png" />
+                        <h3 class="nomProduitPanier"> Produit 3 </h3>
+                        <p class="produitDescriptifpanier"> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Laudantium quas tempore quam.</p>
+                    </div>
+
+                    <div class="gestionDesArticles">
+                        <div>
+                            <label for="nombrearticles"></label>
+                            <input id="nombrearticles" type="number" min="1" max="10" step="1" value="1"><br>
+                        </div>
+                        <div>
+                            <a href="#"><img class="Poubel" src="images/poubelle.png" alt="Suprimmer l'articles"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="FenetreDeLaComande">
+                <p class="NombreArticles "> Nombre d'articles : </p>
+                <p class="PrixLivraisont"> Prix additionnel de livraison : </p>
+                <p class="CodePromo"> Code promotionnel :</p>
+                <p class="PrixTotal">Prix : </p>
+                <button class="confirmerLacommandeDuPanier"> Commander</button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="social">
+            <a href="#"><i class="icon ion-social-instagram"></i></a>
+            <a href="#"><i class="icon ion-social-twitter"></i></a>
+            <a href="#"><i class="icon ion-social-facebook"></i></a>
+        </div>
+        <div class="rubriques">
+            <ul class="list-inline">
+                <li class="list-item"><a href="#">Informations</a></li>
+                <li class="list-item"><a href="#">Retours</a></li>
+                <li class="list-item"><a href="#">Mon compte</a></li>
+                <li class="list-item"><a href="#">Nos magasins</a></li>
+                <li class="list-item"><a href="#">Mentions légales</a></li>
+            </ul>
+            <p class="copyright">MAJ Clothing © 2022</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="tp1 elections délégués" version="4">
+  <OBJECT>
+    <ID name="tp1 elections délégués" mc="Standard.Package" uid="8df92d3e-6f4d-427e-b6dc-d544648122f6"/>
+    <PID name="TP1 elections délégués" mc="Standard.Project" uid="4f46a9b6-4582-4d01-b891-2b6fb6ad1c44"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[tp1 elections délégués]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Direction du lycée" mc="Standard.Actor" uid="69f46b39-4464-4dba-8bba-50cb56b00d93"/>
+        <COMPID name="Secrétaire de l'asso" mc="Standard.Actor" uid="e6e78bdd-8f94-4d47-b90e-c449d016f7b5"/>
+        <COMPID name="Parent" mc="Standard.Actor" uid="29b2fbfa-e49f-4141-8a25-46a4e249de82"/>
+        <COMPID name="fournir les informations " mc="Standard.UseCase" uid="3147170a-afcc-4312-bc7c-f06732d3358d"/>
+        <COMPID name="gérer l'association" mc="Standard.UseCase" uid="2a3f345a-0a55-4233-a18c-ce96fdfc9960"/>
+        <COMPID name="participer à l'association" mc="Standard.UseCase" uid="e323ad38-9799-4dc0-b7ac-5b0cd9787a28"/>
+        <COMPID name="adhérer à l'association" mc="Standard.UseCase" uid="99617ba7-dade-4e37-8bd5-3d12159d9eee"/>
+        <COMPID name="Système de paiement bancaire" mc="Standard.Actor" uid="278e8aea-07c0-4a8b-8888-d54c8b16974a"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Diagramme de cas d'utilisation tp1 elections délégués" mc="Standard.UseCaseDiagram" uid="1cb4b2c4-b6be-4e37-bd1f-1e781fc6ee7e"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

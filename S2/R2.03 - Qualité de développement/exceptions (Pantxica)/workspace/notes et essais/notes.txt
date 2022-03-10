@@ -1,0 +1,21 @@
+Mise en oeuvre du schema de récupération B :
+	- le programme notifie du type d'erreur rencontrée
+	pasDerreur   pbOuverture   pbLecture   pbLectureEtFermeture   pbFermeture
+		     		  (+ rang de      (+ rang de la 
+		    		 la 1e erreur)     nième erreur)
+
+	- le programme s'arrête
+
+Comment le programme peut notifier :
+	- via un fichier log (fichier texte qui rend compte de la réussite/echec d'une execution)
+	- grâce à un message à l'écran
+
+Pour le type d'erreur, utiliser un type énuméré : 
+enum UnEtatErreur = {pasDerreur, pbOuverture, pbLecture, pbLectureEtFermeture, pbFermeture};
+
+
+Méthodologie :
+1) Utiliser un indicateur d'état d'erreur
+2) Entourer l'action dangereuse (try)
+3) Faire suivre l'action dangereuse par un "Traite exception" qui positionne l'indicateur
+4) Conditionner les actions suivantes par rapport à l'indicateur.

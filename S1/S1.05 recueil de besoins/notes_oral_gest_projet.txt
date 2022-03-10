@@ -1,0 +1,14 @@
+S1 : Organisation
+S2 a S6 : Gestion de projet 
+
+OBJECTIFS :
+orga : savoir ce qu'est une organisation, les acteurs qui y travaillent, quelles sont leurs finalités
+       connaitre les stratégies adoptées pour mener a bien objectifs de l'organisation
+comptabilité : bases du système d’information comptable 
+(calculer les couts d'un projet par exemple : combien vont couter tous les salaires, prix du matériel dont on aura besoin...)
+gestion de projet : qui sont les acteurs, comment gerer l'equipe, comment exprimer les besoins
+et surtout comment planifier le projet (combien de temps va durer chaque tache, gérer les congès des salariés, etc.)
+
+
+S6 : tout le voc appris sur le thème de l'orga et les méthodes de gestion d'un projet 
+mis en application -> jeu de simulation : init à l'entrepreunariat = exercice qui apprend a gerer un projet dans une entreprise fictive

@@ -1,0 +1,548 @@
+<?xml version="1.1"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>Algorithme</nom>
+  <date_creation>3/10/2021 00:08</date_creation>
+  <Elements>
+    <Action>
+      <Position>1275;173</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>?</PreAssertion>
+      <PostAssertion>?</PostAssertion>
+      <Titre>Jeu du chifoumi</Titre>
+      <DetailsVisible>0</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>217;25</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>scoreJoueur
+scoreMachine</PostAssertion>
+          <Titre>Initialisation du jeu</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>27;139</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>?</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>Afficher les règles du jeu</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>264;144</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>scoreJoueur
+scoreMachine</PreAssertion>
+              <PostAssertion>scoreJoueur
+scoreMachine</PostAssertion>
+              <Titre>Mettre les scores à 0</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>148;281</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>scoreJoueur</PreAssertion>
+                  <PostAssertion>scoreJoueur</PostAssertion>
+                  <Titre>scoreJoueur ← 0</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>373;345</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>scoreMachine</PreAssertion>
+                  <PostAssertion>scoreMachine</PostAssertion>
+                  <Titre>scoreMachine ← 0</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Action>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>970;564</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>Jouer la partie</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants>
+            <Iteration>
+              <Position>999.5;642.5</Position>
+              <StyleLien>1</StyleLien>
+              <Titre>pour i allant de 
+1 à nombreManches</Titre>
+              <IterationFixe>1</IterationFixe>
+              <Enfants>
+                <Action>
+                  <Position>961;716</Position>
+                  <StyleLien>2</StyleLien>
+                  <PreAssertion>?</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>Nouvelle manche</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants>
+                    <Action>
+                      <Position>295;798</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>?</PreAssertion>
+                      <PostAssertion>?</PostAssertion>
+                      <Titre>Afficher le message 
+de nouvelle manche</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                    <Action>
+                      <Position>531;802</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>?</PreAssertion>
+                      <PostAssertion>coupMachine</PostAssertion>
+                      <Titre>Initialisation coupMachine</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                    <Action>
+                      <Position>1200;817</Position>
+                      <StyleLien>2</StyleLien>
+                      <PreAssertion>gagnantManche
+scoreJoueur
+scoreMachine</PreAssertion>
+                      <PostAssertion>scoreJoueur
+scoreMachine</PostAssertion>
+                      <Titre>Ajout des scores</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>1</DetailsVideVisible>
+                      <Enfants>
+                        <ConditionMultiple>
+                          <Position>1291.5;892</Position>
+                          <StyleLien>0</StyleLien>
+                          <Titre>gagnantManche</Titre>
+                          <operationsLogiques>
+                            <operation>
+                              <Titre>Joueur</Titre>
+                              <Enfants>
+                                <Action>
+                                  <Position>1052;953</Position>
+                                  <StyleLien>1</StyleLien>
+                                  <PreAssertion>scoreJoueur</PreAssertion>
+                                  <PostAssertion>scoreJoueur</PostAssertion>
+                                  <Titre>scoreJoueur ← scoreJoueur + 1</Titre>
+                                  <DetailsVisible>1</DetailsVisible>
+                                  <DetailsVideVisible>1</DetailsVideVisible>
+                                  <Enfants/>
+                                </Action>
+                              </Enfants>
+                            </operation>
+                            <operation>
+                              <Titre>Machine</Titre>
+                              <Enfants>
+                                <Action>
+                                  <Position>1353;1012</Position>
+                                  <StyleLien>1</StyleLien>
+                                  <PreAssertion>scoreMachine</PreAssertion>
+                                  <PostAssertion>scoreMachine</PostAssertion>
+                                  <Titre>scoreMachine ← scoreMachine + 1</Titre>
+                                  <DetailsVisible>1</DetailsVisible>
+                                  <DetailsVideVisible>1</DetailsVideVisible>
+                                  <Enfants/>
+                                </Action>
+                              </Enfants>
+                            </operation>
+                            <operation>
+                              <Titre>None</Titre>
+                              <Enfants/>
+                            </operation>
+                          </operationsLogiques>
+                        </ConditionMultiple>
+                      </Enfants>
+                    </Action>
+                    <Action>
+                      <Position>1561;878</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>gagnantManche
+scoreJoueur
+scoreMachine</PreAssertion>
+                      <PostAssertion>?</PostAssertion>
+                      <Titre>Affichage du gagnant 
+et des scores</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                    <Action>
+                      <Position>742;860</Position>
+                      <StyleLien>2</StyleLien>
+                      <PreAssertion>coupJoueur
+coupMachine</PreAssertion>
+                      <PostAssertion>?</PostAssertion>
+                      <Titre>traitement des 
+coups de la machine 
+et du joueurs </Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants>
+                        <Action>
+                          <Position>835;941</Position>
+                          <StyleLien>2</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>Comparaison des coups joués</Titre>
+                          <DetailsVisible>0</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants>
+                            <ConditionMultiple>
+                              <Position>835.5;1027</Position>
+                              <StyleLien>0</StyleLien>
+                              <Titre>coupJoueur</Titre>
+                              <operationsLogiques>
+                                <operation>
+                                  <Titre>Pierre</Titre>
+                                  <Enfants>
+                                    <ConditionMultiple>
+                                      <Position>690.5;1113</Position>
+                                      <StyleLien>0</StyleLien>
+                                      <Titre>coupMachine</Titre>
+                                      <operationsLogiques>
+                                        <operation>
+                                          <Titre>Pierre</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>345;1209</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>?</PreAssertion>
+                                              <PostAssertion>gagnantManche</PostAssertion>
+                                              <Titre>gagnantManche ← None</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>0</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                        <operation>
+                                          <Titre>Feuille</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>450;1271</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>?</PreAssertion>
+                                              <PostAssertion>gagnantManche</PostAssertion>
+                                              <Titre>gagnantManche ← Machine</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>0</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                        <operation>
+                                          <Titre>Ciseau</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>532;1328</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>?</PreAssertion>
+                                              <PostAssertion>gagnantManche</PostAssertion>
+                                              <Titre>gagnantManche ← Joueur</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>0</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                      </operationsLogiques>
+                                    </ConditionMultiple>
+                                  </Enfants>
+                                </operation>
+                                <operation>
+                                  <Titre>Feuille</Titre>
+                                  <Enfants>
+                                    <ConditionMultiple>
+                                      <Position>915.5;1111</Position>
+                                      <StyleLien>0</StyleLien>
+                                      <Titre>coupMachine</Titre>
+                                      <operationsLogiques>
+                                        <operation>
+                                          <Titre>Pierre</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>768;1265</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>?</PreAssertion>
+                                              <PostAssertion>gagnantManche</PostAssertion>
+                                              <Titre>gagnantManche ← Joueur</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>0</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                        <operation>
+                                          <Titre>Feuille</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>897;1320</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>?</PreAssertion>
+                                              <PostAssertion>gagnantManche</PostAssertion>
+                                              <Titre>gagnantManche ← None</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>0</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                        <operation>
+                                          <Titre>Ciseau</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>1020;1378</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>?</PreAssertion>
+                                              <PostAssertion>gagnantManche</PostAssertion>
+                                              <Titre>gagnantManche ← Machine</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>0</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                      </operationsLogiques>
+                                    </ConditionMultiple>
+                                  </Enfants>
+                                </operation>
+                                <operation>
+                                  <Titre>Ciseau</Titre>
+                                  <Enfants>
+                                    <ConditionMultiple>
+                                      <Position>1172.5;1107</Position>
+                                      <StyleLien>0</StyleLien>
+                                      <Titre>coupMachine</Titre>
+                                      <operationsLogiques>
+                                        <operation>
+                                          <Titre>Pierre</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>1216;1298</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>?</PreAssertion>
+                                              <PostAssertion>gagnantManche</PostAssertion>
+                                              <Titre>gagnantManche ← Joueur</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>0</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                        <operation>
+                                          <Titre>Feuille</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>1315;1233</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>?</PreAssertion>
+                                              <PostAssertion>gagnantManche</PostAssertion>
+                                              <Titre>gagnantManche ← Machine</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>0</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                        <operation>
+                                          <Titre>Ciseau</Titre>
+                                          <Enfants>
+                                            <Action>
+                                              <Position>1424;1170</Position>
+                                              <StyleLien>1</StyleLien>
+                                              <PreAssertion>?</PreAssertion>
+                                              <PostAssertion>gagnantManche</PostAssertion>
+                                              <Titre>gagnantManche ← None</Titre>
+                                              <DetailsVisible>1</DetailsVisible>
+                                              <DetailsVideVisible>0</DetailsVideVisible>
+                                              <Enfants/>
+                                            </Action>
+                                          </Enfants>
+                                        </operation>
+                                      </operationsLogiques>
+                                    </ConditionMultiple>
+                                  </Enfants>
+                                </operation>
+                              </operationsLogiques>
+                            </ConditionMultiple>
+                          </Enfants>
+                        </Action>
+                      </Enfants>
+                    </Action>
+                    <Iteration>
+                      <Position>418.5;879.5</Position>
+                      <StyleLien>1</StyleLien>
+                      <Titre>?</Titre>
+                      <IterationFixe>0</IterationFixe>
+                      <Enfants>
+                        <Action>
+                          <Position>371;953</Position>
+                          <StyleLien>2</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>coupJoueur</PostAssertion>
+                          <Titre>Saisie-Verif du  
+coupJoueur (P, F, C)</Titre>
+                          <DetailsVisible>1</DetailsVisible>
+                          <DetailsVideVisible>0</DetailsVideVisible>
+                          <Enfants>
+                            <Condition>
+                              <Position>324;1036</Position>
+                              <StyleLien>0</StyleLien>
+                              <estUnique>0</estUnique>
+                              <operationsLogiques>
+                                <operation>
+                                  <Titre>coupJoueur = P | F | C </Titre>
+                                  <Enfants>
+                                    <Sortie>
+                                      <Position>359;1114</Position>
+                                    </Sortie>
+                                  </Enfants>
+                                </operation>
+                                <operation>
+                                  <Titre>Sinon</Titre>
+                                  <Enfants>
+                                    <Action>
+                                      <Position>507;1101</Position>
+                                      <StyleLien>1</StyleLien>
+                                      <PreAssertion>?</PreAssertion>
+                                      <PostAssertion>?</PostAssertion>
+                                      <Titre>Message d'erreur
+"Coup inconnu"</Titre>
+                                      <DetailsVisible>0</DetailsVisible>
+                                      <DetailsVideVisible>1</DetailsVideVisible>
+                                      <Enfants/>
+                                    </Action>
+                                  </Enfants>
+                                </operation>
+                              </operationsLogiques>
+                            </Condition>
+                          </Enfants>
+                        </Action>
+                      </Enfants>
+                    </Iteration>
+                  </Enfants>
+                </Action>
+              </Enfants>
+            </Iteration>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>1594;246</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>?</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>Fin partie</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>1423;316</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>scoreJoueur
+scoreMachine
+gagnantManche</PreAssertion>
+              <PostAssertion>?</PostAssertion>
+              <Titre>Afficher le message de 
+fin de la partie</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>1258;422</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>scoreJoueur
+scoreMachine</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>Afficher les scores des joueurs </Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>1727;421</Position>
+                  <StyleLien>2</StyleLien>
+                  <PreAssertion>scoreJoueur
+scoreMachine</PreAssertion>
+                  <PostAssertion>?</PostAssertion>
+                  <Titre>Afficher le gagnant de la partie</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants>
+                    <Condition>
+                      <Position>1496;518</Position>
+                      <StyleLien>0</StyleLien>
+                      <estUnique>0</estUnique>
+                      <operationsLogiques>
+                        <operation>
+                          <Titre>scoreJoueur = scoreMachine</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>1490;599</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>Egalité</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </operation>
+                        <operation>
+                          <Titre>scoreJoueur &lt; scoreMachine</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>1713;606</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>Le gagnant est la machine</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </operation>
+                        <operation>
+                          <Titre>scoreJoueur > scoreMachine</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>1957;603</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>?</PostAssertion>
+                              <Titre>Le gagnant est le joueur</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </operation>
+                      </operationsLogiques>
+                    </Condition>
+                  </Enfants>
+                </Action>
+              </Enfants>
+            </Action>
+          </Enfants>
+        </Action>
+      </Enfants>
+    </Action>
+  </Elements>
+</Algorithme>

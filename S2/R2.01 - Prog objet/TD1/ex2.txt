@@ -1,0 +1,11 @@
+// VARIABLES
+Fenetre f;
+
+
+// TRAITEMENTS
+f.apparait("Exercice 2");
+
+f.choixCouleurTrace(0,0,0);
+
+f.traceLigne(0,0,f.largeur(),f.hauteur());
+f.traceLigne(0,f.hauteur(),f.largeur(),0);

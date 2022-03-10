@@ -1,0 +1,52 @@
+*{
+    margin: 0px;
+}
+
+em{
+    font-weight: bolder;
+    color: rgb(226, 48, 48);
+}
+
+aside{
+    background-color: #4E5875;
+    color: #fff;
+}
+
+.date{
+    font-weight: bold;
+    color: #4E5875;
+}
+
+.diplome{
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.etabFormat{
+    color: #4E5875
+}
+
+.grille{
+    display: grid;
+    grid-template-columns: 100px 100%;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.un{
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+.quatre{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
+#PhotoIdentite{
+    width: 100px;
+    height: 100px;
+}
+

@@ -1,0 +1,99 @@
+JOINTURES :
+
+1) Afficher la liste des enseignants (nom,prenom) qui enseignent la matière droit civil
+SELECT nom,prenom 
+FROM professeur p
+JOIN enseigner e ON p.code = e.codeProfesseur
+WHERE codeMatiere = 1;
+
+2) Afficher la liste des intervenants qui interviennent dans un salon de l academie 'Bordeaux'
+SELECT i.nom,prenom
+FROM intervenant i
+JOIN salon s ON i.code = s.codeIntervenant
+JOIN academie a ON s.codeAcademie = a.code
+WHERE a.nom = 'Bordeaux';
+
+
+ORDER BY :
+
+3) Afficher le titre des ouvrages en fonction de leur nombre d exemplaires tirés de 
+facon croissante
+SELECT nom,tirage
+FROM ouvrage
+ORDER BY tirage;
+
+4) Afficher la liste des classes (libelle) triés par le niveau de facon décroissante
+et par le code de facon ascendante.
+SELECT libelle
+FROM classe
+ORDER BY niveau DESC , code ASC;
+
+
+GROUP BY :
+5) Compter le nombre d exemplaires vendus pour chaque ouvrage 
+SELECT codeOuvrage,SUM(quantite)
+FROM acheter
+GROUP BY codeOuvrage;
+
+6) Compter le nombre de salons ayant lieu chaque jour 
+SELECT date,COUNT(*)
+FROM salon
+GROUP BY date;
+
+7) Compter le nombre d établissement se trouvant à chaque code postal :
+SELECT cp,COUNT(nom)
+FROM établissement
+GROUP BY cp;
+
+
+GROUP BY HAVING :
+
+8) Afficher la liste des auteurs (nom) ayant plusieurs homonymes
+SELECT nom 
+FROM auteur
+GROUP BY nom
+HAVING COUNT(nom)>1;
+
+9) Afficher la liste des ouvrages (titre) ayant un prix supérieur à la moyenne du prix de tous les ouvrages
+SELECT titre
+FROM ouvrage 
+GROUP BY pxPubHT
+HAVING pxPubHT > AVG(pxPubHT);
+
+10) Afficher les professeurs (nom,prenom) qui ont un code postal inferieur a la moyenne de tous les cp 
+SELECT nom,prenom
+FROM professeur
+GROUP BY nom
+HAVING cp < AVG(cp);
+
+
+SELECTS IMBRIQUES :
+
+11) Obtenir le titre de l ouvrage avec le plus haut prix de tous les ouvrages
+SELECT titre 
+FROM ouvrage
+WHERE pxPubHT = (SELECT MAX(pxPubHT) FROM ouvrage);
+
+12) Obtenir le titre des ouvrages avec des prix au dessus de la moyenne
+SELECT titre 
+FROM ouvrage
+WHERE pxPubHT > (SELECT AVG(PxPubHT) FROM ouvrage);
+
+13) Obtenir le titre de l ouvrage avec le nombre de tirage minimum.
+SELECT titre 
+FROM ouvrage
+WHERE tirage IN (SELECT MIN(tirage) FROM ouvrage);
+
+14) Obtenir la liste des auteurs non principaux
+SELECT nom 
+FROM auteur
+WHERE code NOT IN (SELECT codeAuteur FROM auteur WHERE auteurPpalON = 1);
+
+15) Obtenir un ouvrage ayant un tirage qui est au moins supérieur à un autre ouvrage
+SELECT nom 
+FROM ouvrage
+WHERE tirage > ANY(SELECT tirage FROM ouvrage);
+
+16) Obtenir l ouvrage qui a le nombre de tirage supérieur à tous les autres ouvrages
+SELECT nom FROM Ouvrage
+WHERE tirage > ALL (SELECT tirage FROM Ouvrage)

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="TP1 elections délégués" version="4">
+  <OBJECT>
+    <ID name="TP1 elections délégués" mc="Infrastructure.DiagramSet" uid="ead64531-e8f9-433d-8b47-526379c9701a"/>
+    <PID name="TP1 elections délégués" mc="Standard.Project" uid="4f46a9b6-4582-4d01-b891-2b6fb6ad1c44"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[TP1 elections délégués]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>
