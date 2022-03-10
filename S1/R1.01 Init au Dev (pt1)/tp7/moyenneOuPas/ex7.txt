@@ -1,0 +1,23 @@
+// QT1
+
+données : notesExamDu15fevrier,
+          EFFECTIF_S1
+
+résultats : compteurMoyenne
+            compteurPasMoyenne
+
+
+
+// QT2
+
+void calculerNbEtudiantMoyenne(const UnEtudiant tab[], unsigned int nbCases,unsigned int& compteurMoyenne,unsigned int& compteurPasMoyenne);
+/* BUT : calculer le nombre d'étudiants  qui n'ont pas eu (compteurPasMoyenne) dans un controle donné ( ici tab[]). 
+       Il y a nbCases étudiants qui ont passé le controle.
+       Les etudiants qui ont la moyenne (compteurMoyenne) seront calulés grace a la soustraction du nbCases par le compteurPasMoyenne*/
+
+
+
+
+// QT3
+
+calculerNbEtudiantMoyenne(notesExamDu15fevrier,EFFECTIF_S1,nbEtudiantsMoyenne,nbEtudiantsPasMoyenne);

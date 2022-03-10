@@ -1,0 +1,61 @@
+<?xml version="1.1"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>Algorithme</nom>
+  <date_creation>24/9/2021 15:01</date_creation>
+  <Elements>
+    <Action>
+      <Position>666;159</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>?</PreAssertion>
+      <PostAssertion>?</PostAssertion>
+      <Titre>afficher les lignes</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Condition>
+          <Position>672;259</Position>
+          <StyleLien>1</StyleLien>
+          <estUnique>0</estUnique>
+          <operationsLogiques>
+            <operation>
+              <Titre>nbreDeLignes >= 2</Titre>
+              <Enfants>
+                <Iteration>
+                  <Position>546.5;377.5</Position>
+                  <StyleLien>1</StyleLien>
+                  <Titre>pour i allant de nbreDeLignes a 1</Titre>
+                  <IterationFixe>1</IterationFixe>
+                  <Enfants>
+                    <Iteration>
+                      <Position>506.5;502.5</Position>
+                      <StyleLien>1</StyleLien>
+                      <Titre>pour j allant de i a 1</Titre>
+                      <IterationFixe>1</IterationFixe>
+                      <Enfants>
+                        <Action>
+                          <Position>433;627</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>?</PreAssertion>
+                          <PostAssertion>?</PostAssertion>
+                          <Titre>afficher ' * '</Titre>
+                          <DetailsVisible>1</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </Iteration>
+                  </Enfants>
+                </Iteration>
+              </Enfants>
+            </operation>
+            <operation>
+              <Titre>Sinon</Titre>
+              <Enfants/>
+            </operation>
+          </operationsLogiques>
+        </Condition>
+      </Enfants>
+    </Action>
+  </Elements>
+</Algorithme>

@@ -1,0 +1,24 @@
+// QT1
+
+unsigned int bornePremiers;
+bool tabPremiers[];
+
+
+// QT2
+
+Données : 
+ - tab
+ - borneRecherchePremiers
+Résultats : 
+ - tab 
+
+// QT3
+
+void determinerPremiers(unsigned int borneRecherchePremiers,bool tab[]);
+//BUT : determiner dans un tab de borneRecherchePremiers cases, les valeurs qui sont nombres premiers
+
+
+
+// QT4
+
+determinerPremiers(bornePremiers,tabPremiers);
