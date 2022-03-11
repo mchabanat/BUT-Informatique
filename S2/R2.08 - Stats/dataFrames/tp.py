@@ -10,23 +10,23 @@ import matplotlib.pyplot as plt
 
 '''
 
-profilentrant=pd.read_table('F:\\BUT\\S2\\R2.08 - Stats\\dataFrames\\ProfilEntrant.csv',
+profilentrant=pd.read_table('F:\\BUT-Informatique\\S2\\R2.08 - Stats\\dataFrames\\ProfilEntrant.csv',
                             sep=";",
                             index_col=(0),
                             encoding='ANSI')
 
-poursuite=pd.read_table('F:\\BUT\\S2\\R2.08 - Stats\\dataFrames\\Poursuite.csv',
+poursuite=pd.read_table('F:\\BUT-Informatique\\S2\\R2.08 - Stats\\dataFrames\\Poursuite.csv',
                         sep=";",
                         index_col=(0),
                         encoding='ANSI')
 
-resultats=pd.read_table('F:\\BUT\\S2\\R2.08 - Stats\\dataFrames\\Resultats.csv',
+resultats=pd.read_table('F:\\BUT-Informatique\\S2\\R2.08 - Stats\\dataFrames\\Resultats.csv',
                         sep=";",
                         index_col=(0),
                         encoding='ANSI')
 '''
 
-valpineta=pd.read_table('F:\\BUT\\S2\\R2.08 - Stats\\dataFrames\\valpineta_log.csv',
+valpineta=pd.read_table('F:\\BUT-Informatique\\S2\\R2.08 - Stats\\dataFrames\\valpineta_log.csv',
                         sep=";",
                         index_col=(0),
                         encoding='ANSI')

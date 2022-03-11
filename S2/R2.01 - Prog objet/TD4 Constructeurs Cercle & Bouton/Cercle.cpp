@@ -1,3 +1,5 @@
+#include "Cercle.h"
+
 // Constructeurs
 Cercle::Cercle():
     m_x(20),
@@ -68,7 +70,7 @@ Couleur Cercle::couleur() const
 void Cercle::dessiner(Fenetre& f,Couleur c) const
 {
     f.choixCouleurTrace(c);
-    f.traceArc(this->m_x-this->m_rayon,this->m_y-this->m_rayon,this->m_rayon,this->m_rayon);
+    f.traceArc((this->m_x-this->m_rayon/2),(this->m_y-this->m_rayon/2),this->m_rayon,this->m_rayon);
 }
 
 void Cercle::afficher(Fenetre & f) const
@@ -83,5 +85,5 @@ void Cercle::effacer(Fenetre & f) const
 
 bool Cercle::touche(int x, int y) const
 {
-    return (x-this->m_coordX)*(x-this->m_coordX) + (y-this->m_coordY)*(y-this->m_coordY) <= (this->m_rayon*this->m_rayon);
+    return (x-this->m_x)*(x-this->m_x) + (y-this->m_y)*(y-this->m_y) <= (this->m_rayon/2)*(this->m_rayon/2);
 }

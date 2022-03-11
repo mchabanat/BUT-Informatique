@@ -1,5 +1,5 @@
 #include "Bouton.h"
-// Constructeurs 
+// Constructeurs
 Bouton::Bouton():
     m_cercle(Cercle()),
     m_estActif(false)
@@ -26,7 +26,10 @@ void Bouton::definir(int x, int y, int rayon, int r, int g, int b, bool etat)
 
 void Bouton::definir(int x, int y, int rayon, Couleur coul, bool etat)
 {
-    this->m_cercle(x,y,rayon,coul.rouge(),coul.vert(),coul.bleu(),etat);
+    this->m_cercle.placer(x, y);
+    this->m_cercle.dimensionner(rayon);
+    this->m_cercle.definirCouleur(coul);
+    this->m_estActif = etat;
 }
 
 void Bouton::activer()
@@ -91,9 +94,9 @@ void Bouton::dessiner(Fenetre &f, Couleur coul) const
     if(this->m_estActif)
     {
         f.choixCouleurTrace(coul);
-        f.remplitEllipse(this->coordX(),
-                         this->coordY(),
-                         this->rayon(),
-                         this->rayon());
+        f.remplitEllipse(this->coordX()-this->rayon()/4,
+                         this->coordY()-this->rayon()/4,
+                         this->rayon()/2,
+                         this->rayon()/2);
     }
 }

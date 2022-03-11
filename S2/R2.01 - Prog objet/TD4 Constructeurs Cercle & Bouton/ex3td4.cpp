@@ -10,12 +10,14 @@ int main(int argc, char **argv)
 
     // VARIABLES
     Fenetre f;
-    
-    Bouton b;
-    int coordX, coordY = 200;
-    int rayon = 30;
+
+    int coordX = 200;
+    int coordY = 200;
+    int rayon = 200;
     bool etat = false;
-    b = Bouton(Cercle(coordX,coordY,rayon),etat);
+    Couleur noir;
+    noir.definir(0,0,0);
+    Bouton b(Cercle(coordX,coordY,rayon,noir),etat);
 
     Souris s;
     int x,y,clic;
@@ -24,10 +26,12 @@ int main(int argc, char **argv)
     s.associerA(f);
     f.apparait("Exercice 3");
 
+    b.afficher(f);
+
     // Attente des clics
     while(true)
     {
-        while(!s.testeBoutons(x,y,b));
+        while(!s.testeBoutons(x,y,clic));
 
         if(clic==3)
         {
@@ -39,7 +43,7 @@ int main(int argc, char **argv)
             if (b.touche(x,y))
             {
                 b.effacer(f);
-                if(etat)
+                if(b.actif())
                 {
                     b.desactiver();
                 }
@@ -51,8 +55,6 @@ int main(int argc, char **argv)
             }
         }
     }
-
-    cout << "Bisous <3";
 
     return 0;
 }

@@ -1,9 +1,9 @@
 #ifndef CERCLE_H
 #define CERCLE_H
 
-// #include "Fenetre.h"
-// #include "Couleur.h"
-// #include "Souris.h"
+#include "Fenetre.h"
+#include "Couleur.h"
+#include "Souris.h"
 
 
 class Cercle
@@ -13,7 +13,7 @@ private:
     Couleur m_couleur;
     void dessiner(Fenetre&,Couleur) const;
 public:
-    // Constructeurs 
+    // Constructeurs
     Cercle(); // Par défaut
     Cercle(const Cercle&); // de copie
     Cercle(int,int,int,Couleur = Couleur(0,0,255));

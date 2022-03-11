@@ -1,9 +1,9 @@
 #ifndef BOUTON_H
 #define BOUTON_H
 
-// #include "Fenetre.h"
-// #include "Couleur.h"
-// #include "Souris.h"
+#include "Fenetre.h"
+#include "Couleur.h"
+#include "Souris.h"
 #include "Cercle.h"
 
 class Bouton
@@ -13,7 +13,7 @@ private:
     bool m_estActif;
     void dessiner(Fenetre&,Couleur) const;
 public:
-    // Constructeurs 
+    // Constructeurs
     Bouton(); // Par défaut
     Bouton(const Bouton&); // de copie
     Bouton(Cercle,bool);
