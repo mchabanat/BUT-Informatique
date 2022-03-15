@@ -47,10 +47,9 @@ valpineta['config_os'].value_counts()
 
 #Analyse bivariée quali-quali
 croise=pd.crosstab(valpineta['config_os'],valpineta['moment de connexion'],normalize='index')
+croise.index
 croise.plot(kind="bar",stacked=True)
-#croise.index
-#croise=croise["matin","midi","fin d'après midi","soir","nuit tardive"]
-#plt.legend(title="Moment de connexion",bbox_to_anchor=(1.05,1.0,loc='upper left'))
+plt.legend(title="Moment de connexion",bbox_to_anchor=(1.05,1.0),loc='upper left')
 plt.title('Répartition de l utilisation des OS en fonction du moment de la journée')
 plt.xlabel('Utilisation de l OS')
 plt.ylabel('Moment de la journée')
@@ -74,10 +73,13 @@ plt.show()
 
 
 
-valpineta.boxplot(by ='countrié', column =['visit_total_time'],grid=False,showmeans=True)
+valpineta.boxplot(by ='countrié', column =['visit_total_time'],grid=False,
+                                                              showmeans=True, 
+                                                              showfliers=False)
 plt.title('Temps moyen de connexion sur le site par pays')
 plt.xlabel('Lieu de connexion')
 plt.ylabel('Temps de connexion moyen (en secondes)')
+plt.ylim(-100,600)
 plt.show()
 
 

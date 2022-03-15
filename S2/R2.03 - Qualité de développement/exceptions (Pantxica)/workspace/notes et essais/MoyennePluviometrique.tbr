@@ -2,7 +2,7 @@
 <!DOCTYPE Tabula_Rasa>
 <Algorithme>
   <nom>Algorithme</nom>
-  <date_creation>15/2/2022 15:30</date_creation>
+  <date_creation>11/3/2022 13:09</date_creation>
   <Elements>
     <Action>
       <Position>579;56</Position>
@@ -78,7 +78,7 @@ en consultation</Titre>
 STRING</Titre>
                   <Enfants>
                     <Action>
-                      <Position>628;310</Position>
+                      <Position>608;318</Position>
                       <StyleLien>2</StyleLien>
                       <PreAssertion>?</PreAssertion>
                       <PostAssertion>?</PostAssertion>
@@ -87,7 +87,7 @@ STRING</Titre>
                       <DetailsVideVisible>1</DetailsVideVisible>
                       <Enfants>
                         <Action>
-                          <Position>614;378</Position>
+                          <Position>594;386</Position>
                           <StyleLien>1</StyleLien>
                           <PreAssertion>?</PreAssertion>
                           <PostAssertion>?</PostAssertion>
