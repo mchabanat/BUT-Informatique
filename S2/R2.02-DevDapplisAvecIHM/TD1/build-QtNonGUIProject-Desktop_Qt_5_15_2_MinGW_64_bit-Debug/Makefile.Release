@@ -292,7 +292,9 @@ release/main.o: ../QtNonGUIProject/main.cpp C:/Qt/Qt5.15.2/5.15.2/mingw81_64/inc
 		C:/Qt/Qt5.15.2/5.15.2/mingw81_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/Qt5.15.2/5.15.2/mingw81_64/include/QtCore/qcontainerfwd.h \
 		C:/Qt/Qt5.15.2/5.15.2/mingw81_64/include/QtCore/qobject_impl.h \
-		C:/Qt/Qt5.15.2/5.15.2/mingw81_64/include/QtCore/qeventloop.h
+		C:/Qt/Qt5.15.2/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
+		../QtNonGUIProject/maclasse.h \
+		C:/Qt/Qt5.15.2/5.15.2/mingw81_64/include/QtCore/QObject
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\QtNonGUIProject\main.cpp
 
 release/moc_maclasse.o: release/moc_maclasse.cpp 
