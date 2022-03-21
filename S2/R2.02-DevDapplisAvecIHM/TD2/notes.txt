@@ -1,0 +1,32 @@
+Etape 1)
+a. 1 barre de titre - title bar
+   2 etiquette - label
+   3 champ de saisie - input
+   4 bouton d'actions - button
+
+b. - oui besoin d'une barre de Titre
+   - non pas besoin d'une barre de Menus
+   - non pas besoin d'une barre de statut
+   - non pas besoin de barre de défilement
+   - non ce n'est pas une fenetre de dialogue
+
+Etape 3)
+a.
+Barre de titre : appTitle
+Etiquette du "convertisseur ..." : labelConvertisseur
+Etiquette du "degré celsius" : labelCels
+Etiquette du "degré fahren..." : labelFgt
+Champ de saisie : inputTemp
+Resultat en fgt : labelResult
+bouton effacer : eraseButton
+bouton convertir : convertButton
+bouton quitter : quitBouton
+
+b.
+dans le fichier maclasse.cpp
+
+c.
+QStyleOptionTitleBar -> pour la barre de titre
+QLabel -> pour les etiquettes
+QPushButton -> pour les bouttons
+QLineEdit -> pour les input
