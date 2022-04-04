@@ -28,9 +28,25 @@ ConvertisseurTemp::ConvertisseurTemp(QWidget *parent) : QWidget(parent)
     convertButton->setGeometry(116,160,93,29);
     quitButton->setGeometry(336,160,93,29);
 
+    // Connexion
+    //quitButton
+        //Methode1
+    /*QCoreApplication* appliCourante = QCoreApplication::instance();
+    QObject::connect(quitButton,SIGNAL(clicked()),appliCourante,SLOT (quit()));*/
+
+        //Methode2
+    QObject::connect(quitButton,SIGNAL(clicked()),this,SLOT (close()));
+
+    //eraseButton
+    QObject::connect(eraseButton,SIGNAL(clicked()),inputTemp,SLOT (clear()));
+
+    //convertButton
+    QObject::connect(convertButton,SIGNAL(clicked()),inputTemp,SLOT (copy()));
 }
 
 ConvertisseurTemp::~ConvertisseurTemp()
 {
 }
+
+
 

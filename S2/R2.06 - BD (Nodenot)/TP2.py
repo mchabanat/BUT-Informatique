@@ -7,14 +7,14 @@ Created on Wed Mar 16 16:20:47 2022
 
 import pyodbc
 
-conn=pyodbc.connect('DSN=BD_Mchabanat_Lakartxela') #Connexion au DSN (connexion odbc)
-
+conn=pyodbc.connect('DSN=BD_Chabanat_Lakartxela') #Connexion au DSN (connexion odbc)
 cursor= conn.cursor() #creation du curseur
-filter=input("Entrez le debut des descriptifs qui vous interessent : ")
-sql= "select * from Article where ((Descriptif like ? and Reference <> ?))"
-param = (f'{filter}%','B12')
-cursor.execute(sql,param) #execution de la requete
-print (cursor.fetchall()[0])
+
+sql= "select a.Reference,t.TauxTVA from Article a JOIN Categorie c ON a.CodeCategorie=c.CodeCategorie JOIN TVA t ON c.CodeTVA=t.CodeTVA WHERE a.Descriptif like 'B%' AND t.TauxTVA > 0.05"
+cursor.execute(sql) #execution de la requete
+for row in cursor.fetchall():
+    print (row)
+
     
 
 
