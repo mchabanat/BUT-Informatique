@@ -1,0 +1,4 @@
+2- Gérer les hotels = ajouter des hotels
+		      supprimer des hotels
+		      modifier les hotels
+

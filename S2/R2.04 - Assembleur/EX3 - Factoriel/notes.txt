@@ -1,0 +1,5 @@
+1) test = regarder en mem(2) si on retrouve le factoriel de valinit (720)
+4) Le résultat est incorrect car la valeur saisie est supérieure a 32 bits
+   Cela arrive lorsque R1 contient la valeur 13 lors de "MULU R0,R1"
+   On voit l'erreur dans l'état du microprocesseur (on voit 10010) :
+   -> le 1 en position 4 nous montre que la valeur est EN déborde

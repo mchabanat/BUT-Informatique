@@ -1,0 +1,1 @@
+2) test = regarder dans l'adresse memoire de maxi (après la chaine et le 0) si on retrouve le code ASCII maxi

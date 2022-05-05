@@ -1,0 +1,8 @@
+3) La première instruction se trouve à l'adresse mémoire 8
+4) LEA SP,STACK
+   la pile est donc a l'adresse mémoire 102
+6) SP contient 102, c'est l'adresse mémoire de la pile
+   il va donc pointer la pile
+8) Mem(101)=14 car l'instruction PUSH mem(7) fait :
+   SP <-- SP-1 et ensuite met ce qui se trouve en mem(7)
+   dans SP

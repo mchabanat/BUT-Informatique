@@ -1,0 +1,119 @@
+/******************** 1 ********************/
+
+Option Compare Database
+Dim db As DAO.Database
+Dim rs As Recordset
+
+Private Sub Cmd_Lecture_Click()
+
+Set db = CurrentDb()
+Set rs = db.OpenRecordset("MCHABANAT_ETUDIANT")
+
+If Not rs.EOF Then
+    MsgBox rs("nom")
+End If
+
+End Sub
+
+Private Sub Cmd_Insertion_DblClick(Cancel As Integer)
+Set db = CurrentDb()
+Set rs = db.OpenRecordset("MCHABANAT_ETUDIANT", dbOpenDynaset)
+
+num = InputBox("Entrez un numéro", "Insertion étudiant")
+nom = InputBox("Entrez un nom", "Insertion étudiant")
+prenom = InputBox("Entrez un prénom", "Insertion étudiant")
+anniv = InputBox("Entrez un anniversaire", "Insertion étudiant")
+niveau = InputBox("Entrez un niveau", "Insertion étudiant")
+groupe = InputBox("Entrez un groupe", "Insertion étudiant")
+departement = InputBox("Entrez un département", "Insertion étudiant")
+
+rs.AddNew
+
+rs.Fields("NUM").Value = num
+rs.Fields("NOM").Value = nom
+rs.Fields("PRENOM").Value = prenom
+rs.Fields("ANNIVERSAIRE").Value = anniv
+rs.Fields("NIVEAU").Value = niveau
+rs.Fields("GROUPE").Value = groupe
+rs.Fields("DEPARTEMENT").Value = departement
+
+rs.Update
+
+MsgBox ("Étudiant ajouté avec succès.")
+
+End Sub
+
+Private Sub Cmd_Modification_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Set db = CurrentDb()
+Set rs = db.OpenRecordset("SELECT * FROM MCHABANAT_ETUDIANT WHERE nom='Dupont'", dbOpenDynaset)
+
+If Not rs.EOF Then
+    rs.Edit
+    rs("nom") = "Dupond"
+    rs.Update
+    MsgBox ("M. Dupont modifié avec succès.")
+Else
+    MsgBox ("Il n'existe pas de M. Dupont.")
+End If
+
+End Sub
+
+Private Sub Cmd_Suppression_Click()
+Set db = CurrentDb()
+Set rs = db.OpenRecordset("MCHABANAT_ETUDIANT", dbOpenDynaset)
+
+
+If Not rs.EOF Then
+    rs.MoveFirst
+    If Not rs.EOF Then
+        rs.MoveNext
+        rs.Delete
+        MsgBox ("Deuxième étudiant supprimé.")
+    End If
+End If
+
+
+End Sub
+
+
+/******************** 2 ********************/
+Option Compare Database
+Dim db As DAO.Database
+Dim rs As Recordset
+
+Private Sub Form_Load()
+    Set db = CurrentDb()
+    Set rs = db.OpenRecordset("R_TP3")
+End Sub
+
+Private Sub Cmd_Debut_Click()
+    If Not rs.BOF Then
+        rs.MoveFirst
+        texte.Caption = rs("nom") + " " + rs("prenom") + " est inscrit au département " + rs("departement") + " !"
+    End If
+End Sub
+
+Private Sub Cmd_Precedent_Click()
+    If Not rs.BOF Then
+        rs.MovePrevious
+        If Not rs.BOF Then
+            texte.Caption = rs("nom") + " " + rs("prenom") + " est inscrit au département " + rs("departement") + " !"
+        End If
+    End If
+End Sub
+
+Private Sub Cmd_Suivant_Click()
+    If Not rs.EOF Then
+        rs.MoveNext
+        If Not rs.EOF Then
+            texte.Caption = rs("nom") + " " + rs("prenom") + " est inscrit au département " + rs("departement") + " !"
+        End If
+    End If
+End Sub
+
+Private Sub Cmd_Fin_Click()
+    If Not rs.EOF Then
+        rs.MoveLast
+        texte.Caption = rs("nom") + " " + rs("prenom") + " est inscrit au département " + rs("departement") + " !"
+    End If
+End Sub
