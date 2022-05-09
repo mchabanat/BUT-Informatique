@@ -83,7 +83,7 @@ def distArc(arret1, arret2):
     if arret1 in voisin(arret2):
         return distarrets(arret1, arret2)
     else:
-        return 'inf'
+        return float ('inf')
 
 #Renvoie le graphe pondéré du dictionnaire en paramètre sous forme de matrice
 def poids_bus(dico):
@@ -103,30 +103,49 @@ def poids_bus(dico):
 
     
 def bellman(arret_dep,arret_arriv):
-    G=poids_bus(noms_arrets)
-    
-    
     #init des dist et pred
-    dicoDistPred = {som: ['inf', None] for som in noms_arrets}
+    dicoDistPred = {som: [float('inf'), None] for som in noms_arrets}
     #On init le poids de l'arret de départ a 0
     dicoDistPred[arret_dep][0]=0
     
     #fonction pour relacher un arc
     def relachement(depart,arrivee):
-        if dicoDistPred[depart][0]+distArc(depart, arrivee) < dicoDistPred[arrivee][0]:
+        if dicoDistPred[depart][0] + distArc(depart, arrivee) < dicoDistPred[arrivee][0]:
             dicoDistPred[arrivee][0] = dicoDistPred[depart][0] + distArc(depart, arrivee)
             dicoDistPred[arrivee][1] = depart
-            #s'il y a un changement de dist, on retourne true pour dire que l'on doit etudier les autres arrets
+            #s'il y a un amelioration, on retourne true pour dire qu'un relachement a été fait
+            #et que l'on doit etudier les autres arrets
             return True
         else:
             return False
+
     
+    #début boucle : on considère qu'aucun changement a été réalisé
+    change=False
     #etude de tous les arrets
-    for arret1 in noms_arrets:
-        #2e boucle pour etudier les voisins de l'arret1
-        for arret2 int voisin(arret1):
-            
-        
+    for i in range(0, len(noms_arrets) - 2):
+        for arret1 in noms_arrets:
+            #2e boucle pour etudier les voisins de l'arret1
+            for arret2 in voisin(arret1):
+                #on relache le sommet
+                if change and not relachement(arret1, arret2):
+                    break
+                change = relachement(arret1, arret2)
+                
+    #Après avoir relaché tout les chemins, on retrouve le chemin à réaliser pour faire arret1->arret2 
+    lastArret = dicoDistPred[arret_arriv][1]
+    cheminArrets = [lastArret]
+    while lastArret != arret_dep:
+        lastArret=dicoDistPred[lastArret][1]
+        cheminArrets = [lastArret]+cheminArrets
+    
+    cheminArrets.append(arret_arriv)
+    
+    #la fonction renvoie le chemin et la distance a parcourir (round permet d'arrondir la distance)
+    return cheminArrets,round(dicoDistPred[arret_arriv][0])
+    
+
+    
     
 #def floydWarshall(arret_dep,arret_arriv):
     
