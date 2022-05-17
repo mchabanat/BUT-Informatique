@@ -1,0 +1,14 @@
+.DATA 
+Tab DSW 100
+.CODE
+	LEA SP,STACK
+	LEA R0,Tab
+	LD R1,99
+initTab:
+	LD [R0],R1
+	DEC R1
+	INC R0
+	CMP R1,-1
+	BNE initTab
+	HLT
+.STACK 10

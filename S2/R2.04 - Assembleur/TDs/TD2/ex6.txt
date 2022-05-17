@@ -1,0 +1,36 @@
+.DATA
+
+.CODE
+	LEA SP,STACK
+	LD R0,0
+	OUT R0,5		;on efface l'ecran 
+attenteClic:
+	IN R0,0
+	CMP R0,%1100 0110	;on regarde si le bouton B est cliqué
+	BEQ fin
+	CMP R0,%1100 0111	;on regarde s'il y a un clic sur l'écran 
+	BNE attenteClic
+trace:
+	LD R0,0
+	OUT R0,5		;on efface l'ecran 
+	IN R1,1
+	IN R2,2
+	SUB R1,20
+	SUB R2,20
+	LD R0,R1
+	OUT R0,1
+	LD R0,R2
+	OUT R0,2
+	LD R0,40
+	OUT R0,3
+	OUT R0,4
+	LD R0,%0111 0101	;tracé du carré vert coté=40px
+	OUT R0,5
+	IN R0,0
+	CMP R0,%1100 0111
+	BEQ trace 
+	JMP attenteClic
+fin:
+	HLT
+
+.STACK 5

@@ -1,0 +1,114 @@
+1) 3)
+.DATA 
+chaine DW "recherche de caractère"
+taille DW 22
+cherché DW 'a'
+trouvé DSW 1
+.CODE
+	LEA SP,STACK
+	LEA R0,chaine 
+	PUSH R0
+	LD R0,taille
+	PUSH R0
+	LD R0,cherché
+	PUSH R0
+	CALL recherche
+	CMP R3,-1
+	BNE trouve
+	LD R4,0		;pas trouvé
+	JMP fin
+trouve:
+	LD R4,1		;trouvé
+fin:
+	ST R4,trouvé
+	HLT
+recherche:
+	PUSH R0
+	PUSH R1
+	LD R1,[SP+4]		;compteur
+	LD R0,[SP+5]		;@chaine
+	LD R3,-1
+boucle:
+	CMP R1,0
+	BEQ pastrouvé
+	INC R0
+	CMP [R0],[SP+2]
+	BEQ débusqué
+	INC R0
+	DEC R1
+	JMP boucle
+débusqué:
+	LD R3,[R0]
+pastrouvé:
+	PULL R1
+	PULL R0
+	RET 3		;RET 3 pour que ca supprime ce qu'il reste dans la pile
+
+.STACK 10
+
+
+2)
+contenu pile avant exec de la procedure : 
+|	|
+|-------|
+|@retour|
+|-------|
+|cherché|
+|-------|
+|taille |
+|-------|
+|@chaine|
+|-------|
+
+4)
+contenu pile en cours d'exec de la procedure : 
+|	|
+|-------|
+|  R1   |
+|-------|
+|  R0   |
+|-------|
+|@retour|
+|-------|
+|cherché|
+|-------|
+|taille |
+|-------|
+|@chaine|
+|-------|
+
+5)
+.CODE
+	LEA SP,STACK
+	LEA R0,chaine 
+	LD R1,taille
+	LD R2,cherché
+	CALL recherche
+	CMP R3,-1
+	BNE trouve
+	LD R4,0		;pas trouvé
+	JMP fin
+trouve:
+	LD R4,1		;trouvé
+fin:
+	ST R4,trouvé
+	HLT
+recherche:
+	PUSH R0
+	PUSH R1
+	LD R3,-1
+boucle:
+	CMP R1,0
+	BEQ pastrouvé
+	INC R0
+	CMP [R0],R2
+	BEQ débusqué
+	INC R0
+	DEC R1
+	JMP boucle
+débusqué:
+	LD R3,[R0]
+pastrouvé:
+	PULL R1
+	PULL R0
+	RET 

@@ -1,0 +1,28 @@
+.DATA
+
+.CODE
+	LEA SP,STACK
+	LD R0,0
+	OUT R0,5		;on efface l'ecran
+attenteClic:
+	IN R0,0
+	CMP R0,%1100 0101	
+	BNE attenteClic
+	IN R1,1
+	IN R2,2
+	SUB R1,20
+	SUB R2,20
+	LD R0,R1
+	OUT R0,1
+	LD R0,R2
+	OUT R0,2
+	LD R0,40
+	OUT R0,3
+	OUT R0,4
+	LD R0,%0111 0101	;tracé du carré vert coté=40px
+	OUT R0,5
+
+	HLT
+
+.STACK 5
+

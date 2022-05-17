@@ -1,0 +1,16 @@
+.DATA
+c1 DW "ABCDEFGH"
+   DW 0
+c2 DW "ABcDeFGh"
+   DW 0
+differences DSW 1
+.CODE
+	LEA SP,STACK
+	LEA R1,c1
+	LEA R2,c2
+	PUSH R1
+	PUSH R2
+	CALL recherche
+recherche:
+	CMP 
+.STACK 10

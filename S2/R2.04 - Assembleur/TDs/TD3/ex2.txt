@@ -1,0 +1,136 @@
+Question 1 : procédure somme des cases d'un tableau
+sommeTab:
+	PUSH R0		;R0 = pointeur Tab
+	LD R2,0
+boucle:
+	ADD R2,[R0]
+	INC R0
+	CMP [R0],0
+	BNE boucle
+	PULL R0		;on recup la valeur de R0 avant le sp
+	RET	
+
+
+------------------------------------------------------------
+
+Question 2 : contenu de la pile
+- juste apres le call :
+|	|
+|-------|
+|@retour|
+|-------|
+
+- milieu de procedure : 
+|-------|
+|  R0   |
+|-------|
+|@retour|
+|-------|
+
+- avant RET : 
+|	|
+|-------|
+|@retour|
+|-------|
+
+- apres retour au prog principal :
+|	|
+|-------|
+|	|
+|-------|
+
+
+------------------------------------------------------------
+
+Question 3 : prog de test
+.DATA 
+Tab DW 30
+    DW 40
+    DW -8
+    DW 0
+total DSW 1
+.CODE
+	LEA SP,STACK
+	LEA R0,Tab
+	CALL sommeTab
+	ST R2,total
+	HLT
+sommeTab:
+	PUSH R0		;R0 = pointeur Tab
+	LD R2,0
+boucle:
+	ADD R2,[R0]
+	INC R0
+	CMP [R0],0
+	BNE boucle
+	PULL R0		;on recup la valeur de R0 avant le sp
+	RET	
+.STACK 10
+
+
+------------------------------------------------------------
+
+Question 4 : passage de paramètres par la pile
+.DATA 
+Tab DW 30
+    DW 40
+    DW -8
+    DW 0
+total DSW 1
+.CODE
+	LEA SP,STACK
+	LEA R0,Tab
+	PUSH R0		;passage de parametre par la pile
+	CALL sommeTab
+	ST R2,total
+	HLT
+sommeTab:
+	PUSH R0		;permet de restituer R0 apres la procedure
+	LD R0,[SP+2]
+	LD R2,[R0]
+boucle:
+	CMP [R0],0
+	BEQ fin
+	INC R0
+	ADD R2,[R0]
+	JMP boucle
+fin:
+	PULL R0		;restitution de R0 avant procedure
+	RET 1	
+.STACK 10
+
+
+------------------------------------------------------------
+
+Question 5 : contenu de la pile
+- juste apres le call :
+|	|
+|-------|
+|@retour|
+|-------|
+|  RO   |
+|-------|
+
+- milieu de procedure : 
+|	|
+|-------|
+|  RO   |	<- SP
+|-------|
+|@retour|	<- SP+1
+|-------|
+|  RO   |	<- SP+2
+|-------|
+
+- avant RET : 
+|	|
+|-------|
+|@retour|
+|-------|
+|  RO   |
+|-------|
+
+- apres retour au prog principal :
+|	|
+|-------|
+|	|
+|-------|

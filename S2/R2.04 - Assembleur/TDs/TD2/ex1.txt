@@ -1,0 +1,15 @@
+.DATA
+
+.CODE
+LEA SP,STACK
+LD R0,118 		;centre du cercle en 128,128 donc coin sup gauche 118,118
+OUT R0,1
+OUT R0,2
+LD R0,20
+OUT R0,3
+OUT R0,4
+LD R0,%1110 0100 	;cercle jaune de rayon 20 
+OUT R0,5
+HLT
+
+.STACK 5

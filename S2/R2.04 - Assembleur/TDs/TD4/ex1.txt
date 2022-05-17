@@ -1,0 +1,13 @@
+.CODE
+	LEA SP,STACK
+	LEA R1,T1	;on pointe sur les tab
+	LEA R2,T2
+	LEA R3,T2
+	ADD R3,19	;on place le pointeur du T2 a la fin
+inversion:
+	LD [R3],[R1]
+	INC R1
+	DEC R3
+	CMP R3,R2
+	BGEU inversion
+	HLT

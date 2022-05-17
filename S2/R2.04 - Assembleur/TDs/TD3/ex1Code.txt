@@ -1,0 +1,14 @@
+.DATA
+Tableau DSW 183
+Décompteur DW 183
+.CODE
+	LEA SP,STACK	
+	LEA R0,Tableau
+boucle:
+	LD [R0],12
+	INC R0
+	DEC Décompteur
+	CMP Décompteur,0
+	BNE boucle
+	HLT
+.STACK 10

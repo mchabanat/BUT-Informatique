@@ -102,7 +102,7 @@ def poids_bus(dico):
     
 
     
-def bellman(arret_dep,arret_arriv):
+def belmann(arret_dep,arret_arriv):
     #init des dist et pred
     dicoDistPred = {som: [float('inf'), None] for som in noms_arrets}
     #On init le poids de l'arret de départ a 0
@@ -123,7 +123,7 @@ def bellman(arret_dep,arret_arriv):
     #début boucle : on considère qu'aucun changement a été réalisé
     change=False
     #etude de tous les arrets
-    for i in range(0, len(noms_arrets) - 2):
+    for i in range(0, len(noms_arrets) - 1):
         for arret1 in noms_arrets:
             #2e boucle pour etudier les voisins de l'arret1
             for arret2 in voisin(arret1):
@@ -139,6 +139,7 @@ def bellman(arret_dep,arret_arriv):
         lastArret=dicoDistPred[lastArret][1]
         cheminArrets = [lastArret]+cheminArrets
     
+    #On place a la fin du chemin le nom de l'arret d'arrivée
     cheminArrets.append(arret_arriv)
     
     #la fonction renvoie le chemin et la distance a parcourir (round permet d'arrondir la distance)
@@ -148,6 +149,14 @@ def bellman(arret_dep,arret_arriv):
     
     
 #def floydWarshall(arret_dep,arret_arriv):
+    
+                
+        
+    
+    
+    
+    
+    
     
 
 
