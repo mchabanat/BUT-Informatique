@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Chifoumi</class>
- <widget class="QMainWindow" name="Chifoumi">
+ <class>ChifoumiVue</class>
+ <widget class="QMainWindow" name="ChifoumiVue">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>623</width>
+    <width>625</width>
     <height>528</height>
    </rect>
   </property>
@@ -16,9 +16,9 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_5">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
+     <layout class="QVBoxLayout" name="vAllChifoumi">
       <item>
-       <layout class="QGridLayout" name="gridLayout">
+       <layout class="QGridLayout" name="gridPartieHaute">
         <item row="0" column="1">
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
@@ -199,17 +199,40 @@
          </spacer>
         </item>
         <item row="0" column="2">
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Gagnant à</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>5</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
@@ -227,7 +250,7 @@
        </spacer>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="bbbbbbbbbbb">
+       <layout class="QHBoxLayout" name="hPartieBasse">
         <property name="topMargin">
          <number>0</number>
         </property>
@@ -248,7 +271,7 @@
          </spacer>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="aaaaaaaaaa">
+         <layout class="QVBoxLayout" name="vInterfaceJoueur">
           <property name="spacing">
            <number>9</number>
           </property>
@@ -259,7 +282,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="QGroupBox" name="groupBox">
+           <widget class="QGroupBox" name="gbBoutonsCoups">
             <property name="minimumSize">
              <size>
               <width>509</width>
@@ -364,7 +387,7 @@
            </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
+           <layout class="QHBoxLayout" name="hBoutNewPartie">
             <item>
              <spacer name="horizontalSpacer">
               <property name="orientation">
@@ -381,7 +404,7 @@
             <item>
              <widget class="QPushButton" name="bNewPartie">
               <property name="text">
-               <string>Nouvelle Partie</string>
+               <string>Jouer</string>
               </property>
              </widget>
             </item>
@@ -416,7 +439,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>623</width>
+     <width>625</width>
      <height>21</height>
     </rect>
    </property>
@@ -424,16 +447,34 @@
     <property name="title">
      <string>&amp;Fichier</string>
     </property>
+    <addaction name="actionQuitter"/>
    </widget>
    <widget class="QMenu" name="menu_Aide">
     <property name="title">
      <string>&amp;Aide</string>
     </property>
+    <addaction name="actionA_propos_de"/>
    </widget>
    <addaction name="menu_Fichier"/>
    <addaction name="menu_Aide"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionA_propos_de">
+   <property name="text">
+    <string>&amp;A propos de ...</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>&amp;Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+F3</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="ressourceChifoumi.qrc"/>

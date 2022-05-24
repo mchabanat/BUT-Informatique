@@ -2,6 +2,7 @@
 
 import json
 from math import sin, cos, acos, pi
+from graphics import *
 
 #Import du fichier .json
 donneesbus = open("donneesbus.json")
@@ -96,8 +97,69 @@ def poids_bus(dico):
         matPoids.append(ligne)
     return matPoids
 
-#def dijkstra(arret_dep,arret_arriv):
+
+
+
+def dijkstra(depart, arrive):
+    #Déclaration des tableaux
+    G = poids_bus(donneesbus)
+    sommetATraite = []
+    dist = []
+    pred = []
+    tab = []
+    sommetTraite = indic_som(depart)
     
+    #Initialisation tab des tableaux
+    for i in range(len(G)):
+        pred.append(float("inf"))
+        dist.append(float("inf"))
+        tab.append(float("inf"))
+        sommetATraite.append(i)
+    
+    #On traite le sommet de départ
+    sommetATraite.remove(sommetTraite)
+    pred[sommetTraite] = sommetTraite #Comme c'est l'arrêt de départ son prédecesseur est lui même
+    dist[sommetTraite] = 0
+    
+    #Début de la boucle
+    while sommetATraite != []:
+        #Réinitialisation des variable 
+        for i in range(len(G)):
+            if i in sommetATraite:
+                tab[i] = G[sommetTraite][i]
+            else:
+                tab[i] = float('inf')
+        
+        #Relachement
+        for i in range(len(tab)):
+            if tab[i] != float('inf'):
+                if dist[i] > (dist[sommetTraite]+tab[i]):
+                    pred[i] = sommetTraite
+                    dist[i] = dist[sommetTraite]+tab[i]
+        
+        #Reinitialisation
+        for i in range(len(G)):
+            if i in sommetATraite:
+                tab[i] = dist[i]
+            else:
+                tab[i] = float('inf')
+        
+        #On établit le prochain arrêt à traiter
+        sommetTraite = minTableau(tab)[1]
+        sommetATraite.remove(sommetTraite)
+        
+        #On verifie qu'on ne soit pas arrivé au sommet
+        if sommetTraite == indic_som(arrive):
+            break
+        
+    #On remonte les chemin 
+    result = []
+    sommet = indic_som(arrive)
+    while sommet != indic_som(depart):
+        result.append(nom(sommet))
+        sommet = pred[sommet]
+    result.append(depart)
+    return inverseTab(result)
     
     
 
@@ -132,7 +194,7 @@ def belmann(arret_dep,arret_arriv):
                     break
                 change = relachement(arret1, arret2)
                 
-    #Après avoir relaché tout les chemins, on retrouve le chemin à réaliser pour faire arret1->arret2 
+    #Après avoir tout relaché, on retrouve le chemin à réaliser pour faire arret1->arret2 
     lastArret = dicoDistPred[arret_arriv][1]
     cheminArrets = [lastArret]
     while lastArret != arret_dep:
@@ -148,15 +210,84 @@ def belmann(arret_dep,arret_arriv):
 
     
     
-#def floydWarshall(arret_dep,arret_arriv):
+def floydWarshall(depart, arrivee):
+    #Initialisation
+    indiceDepart = indic_som(depart)
+    indiceArrivee = indic_som(arrivee)
+    matrice = poids_bus(donneesbus)
+    n = len(matrice)
+    #On remplit les tableaux distance et pred
+    distances, pred = [[0 for _ in range(n)] for _ in range(n)], [[0 for _ in range(n)] for _ in range(n)]
+    chemin = []
     
-                
+    #On place les poids et les predécesseurs déjà existant
+    for i in range(n):
+        for j in range(n):
+            distances[i][j] = matrice[i][j]
+            pred[i][j] = j
+    #boucles de Floyd Warshall
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if distances[i][j] > distances[i][k] + distances[k][j]:
+                    distances[i][j] = distances[i][k] + distances[k][j]
+                    pred[i][j] = pred[i][k]  
+                    
+    #Recherche du chemin depart --> arrivée
+    chemin.append(depart)
+    position = indiceDepart 
+    while position != indiceArrivee:
+        position = pred[position][indiceArrivee]
+        chemin.append(nom(position))
+    return chemin
         
     
     
+# ********************* ETAPE 3 ********************* #
+
+#parcours complet -> récuperer les longitudes et latitudes max et min
+# init des long/lat à ceux du premier sommet
+longMin=longitude("7PUI")
+longMax=longMin
+latMin=latitude("7PUI")
+latMax=latMin
+
+# début du parcours
+for i in range (1,len(donneesbus)-1):
+    nomSom=nom(i)
+    if longitude(nomSom) > longMax:
+        longMax = longitude(nomSom)
     
-    
-    
+    if longitude(nomSom) < longMin:
+        longMin = longitude(nomSom)
+        
+    if latitude(nomSom) > latMax:
+        latMax = latitude(nomSom)
+        
+    if latitude(nomSom) < latMin:
+        latMin = latitude(nomSom)
+
+long = longMax-longMin
+lat = latMax -latMin
+#print("la taille de l'écran est de ", round(long*4000), "x", round(lat*4000))
+
+
+# Fonction qui dessine un point
+def point(window,posX,posY):
+    window.plot(posX, posY)
+    c = Circle(Point(posX,posY), 4)
+    c.draw(window)
+
+#definition taille fenetre
+def main():
+    win = GraphWin("Plan Bus BAB", 750, 500)
+    point(win,50,50)
+    win.getMouse() # pause for click in window
+    win.close()
+   
+main()
+
+
     
 
 
