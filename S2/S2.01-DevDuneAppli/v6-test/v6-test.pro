@@ -12,15 +12,18 @@ SOURCES += \
     chifoumimodele.cpp \
     chifoumipresentation.cpp \
     chifoumivue.cpp \
+    dialogparametres.cpp \
     main.cpp
 
 HEADERS += \
     chifoumimodele.h \
     chifoumipresentation.h \
-    chifoumivue.h
+    chifoumivue.h \
+    dialogparametres.h
 
 FORMS += \
-    chifoumivue.ui
+    chifoumivue.ui \
+    dialogparametres.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

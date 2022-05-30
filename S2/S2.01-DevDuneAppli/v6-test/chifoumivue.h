@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <QtWidgets>
+#include "dialogparametres.h"
 
 #include "chifoumipresentation.h"
 
@@ -26,6 +27,8 @@ public:
 
     ChifoumiPresentation *getPresentation();
     void setPresentation(ChifoumiPresentation *p);
+    void setPseudoJoueur(QString s);
+    void setNbMaxPoints(int pts);
 
     void majInterface(ChifoumiPresentation::UnEtat e);
     /* BUT : au début d'une partie ou à la fin d'une manche,
@@ -47,7 +50,6 @@ public:
     /* BUT : si etat = etatInitial et qu'on veut lancer une partie,
      *       alors on va mettre les labels en bleu
      */    
-
 private:
     Ui::ChifoumiVue *ui;
 

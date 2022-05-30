@@ -25,6 +25,7 @@ ChifoumiVue::ChifoumiVue(ChifoumiPresentation *p,QWidget *parent)
     //Menus
     connect(ui->actionQuitter, SIGNAL(triggered()), this, SLOT(close()));
     connect(ui->actionA_propos_de, SIGNAL(triggered()), p, SLOT(aProposDe()));
+    connect(ui->action_Parametrer, SIGNAL(triggered()), p, SLOT(parametrer()));
 }
 
 
@@ -48,6 +49,16 @@ ChifoumiPresentation *ChifoumiVue::getPresentation()
 void ChifoumiVue::setPresentation(ChifoumiPresentation *p)
 {
     _laPresentation = p;
+}
+
+void ChifoumiVue::setPseudoJoueur(QString s)
+{
+    ui->lJoueur->setText(s);
+}
+
+void ChifoumiVue::setNbMaxPoints(int pts)
+{
+    ui->pointsMax->setText(QString::number(pts));
 }
 
 

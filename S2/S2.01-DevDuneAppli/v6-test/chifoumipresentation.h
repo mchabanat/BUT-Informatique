@@ -29,6 +29,7 @@ public slots:
     void jouePapier();
     void joueCiseau();
     void aProposDe();
+    void parametrer();
 
 private:
     ChifoumiModele *_leModele;

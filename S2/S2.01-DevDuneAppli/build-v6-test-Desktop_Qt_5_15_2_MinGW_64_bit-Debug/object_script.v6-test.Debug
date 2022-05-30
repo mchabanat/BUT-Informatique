@@ -1,0 +1,10 @@
+debug/chifoumimodele.o
+debug/chifoumipresentation.o
+debug/chifoumivue.o
+debug/dialogparametres.o
+debug/main.o
+debug/qrc_ressourceChifoumi.o
+debug/moc_chifoumimodele.o
+debug/moc_chifoumipresentation.o
+debug/moc_chifoumivue.o
+debug/moc_dialogparametres.o

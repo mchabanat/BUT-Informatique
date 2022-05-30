@@ -118,3 +118,48 @@ void ChifoumiPresentation::aProposDe()
     msgBox->setText("Tom, Angel, Matis -> gros bgs \nVersion 4 du Chifoumi (11/05/2022) ");
     msgBox->exec();
 }
+
+void ChifoumiPresentation::parametrer()
+{
+
+    QMessageBox *msgBox = new QMessageBox;
+    DialogParametres * mesParam= new DialogParametres;
+    bool pseudoOk = false;
+
+    switch (_etat) {
+    case ChifoumiPresentation::etatInitial:
+        mesParam->exec();
+
+        // Saisie pseudo
+        if (mesParam->getPseudo() != "")
+        {
+            pseudoOk=true;
+        }
+
+        if (pseudoOk)
+        {
+            //Changer le label en fonction du pseudo saisi
+            _laVue->setPseudoJoueur(mesParam->getPseudo());
+        }
+
+        // Modifier le nb max de points
+        _laVue->setNbMaxPoints(mesParam->getNbPoints());
+        //Modifier le temps max
+
+        break;
+    case ChifoumiPresentation::partieEnCours:
+        msgBox->setIcon(QMessageBox::Information);
+        msgBox->setStandardButtons(QMessageBox::Ok);
+        msgBox->setWindowTitle("A propos des paramètres");
+        msgBox->setText("Vous pouvez modifier les paramètres \nuniquement avant le début de la partie !");
+        msgBox->exec();
+        break;
+    case ChifoumiPresentation::finDePartie: break;
+    default: break;
+    }
+
+}
+
+
+
+

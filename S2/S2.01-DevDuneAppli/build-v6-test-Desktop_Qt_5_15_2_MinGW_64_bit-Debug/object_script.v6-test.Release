@@ -1,0 +1,10 @@
+release/chifoumimodele.o
+release/chifoumipresentation.o
+release/chifoumivue.o
+release/dialogparametres.o
+release/main.o
+release/qrc_ressourceChifoumi.o
+release/moc_chifoumimodele.o
+release/moc_chifoumipresentation.o
+release/moc_chifoumivue.o
+release/moc_dialogparametres.o
