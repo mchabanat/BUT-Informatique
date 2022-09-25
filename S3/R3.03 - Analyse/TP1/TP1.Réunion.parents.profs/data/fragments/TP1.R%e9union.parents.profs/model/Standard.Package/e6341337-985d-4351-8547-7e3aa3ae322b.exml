@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="tp1.réunion.parents.profs" version="4">
+  <OBJECT>
+    <ID name="tp1.réunion.parents.profs" mc="Standard.Package" uid="e6341337-985d-4351-8547-7e3aa3ae322b"/>
+    <PID name="TP1.Réunion.parents.profs" mc="Standard.Project" uid="dba645dd-709e-4f76-b7d9-7310898675b2"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[tp1.réunion.parents.profs]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Interaction" mc="Standard.Interaction" uid="43e36a28-feea-4b4a-9dc1-fab028618bae"/>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="Reponsable administratif" mc="Standard.Actor" uid="bad23837-8861-42ba-8c15-e00689818c53"/>
+        <COMPID name="Enseignant" mc="Standard.Actor" uid="37ccfd1e-d350-4416-b8ae-8941e446090b"/>
+        <COMPID name="Planifier réunion (date, horaire)" mc="Standard.UseCase" uid="3c92ce1e-a776-48fc-a450-0be33571187b"/>
+        <COMPID name="Choisir les classes concernées" mc="Standard.UseCase" uid="cd35ae2a-4701-41f6-a378-3e9c5cbc91d0"/>
+        <COMPID name="S'inscrire" mc="Standard.UseCase" uid="bc8c9ddf-bded-46b0-aaa6-592735d5b3cd"/>
+        <COMPID name="Gerer les RDV" mc="Standard.UseCase" uid="c71967fa-4a4a-463c-8fed-0ba27a58efa3"/>
+        <COMPID name="S'inscrire" mc="Standard.UseCase" uid="196e8e13-cb19-4ea5-b2f7-acb3ae060a20"/>
+        <COMPID name="Effectuer les entretiens" mc="Standard.UseCase" uid="eecdd29f-2d6a-40c1-b723-acadc8c40895"/>
+        <COMPID name="Confirmer sa présence" mc="Standard.UseCase" uid="ee0d1442-424a-4ee4-888a-269510e38d9e"/>
+        <COMPID name="Modifier la composition d'une réunion" mc="Standard.UseCase" uid="58769b58-ecda-433d-876a-68b4b66bc574"/>
+        <COMPID name="Annuler une réunion" mc="Standard.UseCase" uid="da9d0dd2-3918-4c32-ba6a-93eb1069c35a"/>
+        <COMPID name="Se rendre aux réunions" mc="Standard.UseCase" uid="e6337757-a6db-4fff-ade5-177fa48dcaae"/>
+        <COMPID name="Parent/enseignant : Participant" mc="Standard.Actor" uid="da86f1fd-a4e4-4ba3-ba20-3d568ff2f3c0"/>
+        <COMPID name="Parent" mc="Standard.Actor" uid="70f5dfcf-492a-4d3e-b601-cef9870f2efa"/>
+        <COMPID name="Responsable administratif" mc="Standard.Actor" uid="056f4632-1099-4e7c-83c6-f490ab00432d"/>
+        <COMPID name="Participant" mc="Standard.Actor" uid="78027858-d908-472e-b26d-429f93238831"/>
+        <COMPID name="Parent" mc="Standard.Actor" uid="c45252f3-5d30-4e9b-856e-4030cc627dca"/>
+        <COMPID name="Enseignant" mc="Standard.Actor" uid="370eadd7-2586-4b62-b151-90e2233a2ff7"/>
+        <COMPID name="Gerer les réunions" mc="Standard.UseCase" uid="359ecb0e-e722-4703-b14b-9dc2aa91e5ee"/>
+        <COMPID name="Se connecter" mc="Standard.UseCase" uid="3b8e97c7-619e-461d-b76d-691e101c96bf"/>
+        <COMPID name="Participer à une réunion" mc="Standard.UseCase" uid="3fbed254-6e6a-4ac7-a6f0-2f5803988d25"/>
+        <COMPID name="gerer entretien" mc="Standard.UseCase" uid="d9ee95cb-7e7f-46d8-8301-b15fb2cb7df6"/>
+        <COMPID name="Choisir enseignant" mc="Standard.UseCase" uid="e8b4d1bb-68b7-46e5-bc0b-78c41d95b21c"/>
+        <COMPID name="Responsable administratif" mc="Standard.Actor" uid="8aab3110-e443-4ac8-9b53-a3f72d7a0963"/>
+        <COMPID name="Planifier un entretien" mc="Standard.UseCase" uid="e780f280-130b-4171-a783-1075e87178a1"/>
+        <COMPID name="Modifier un entretien" mc="Standard.UseCase" uid="df7e1745-c34d-4958-ae83-68db66fd7d1c"/>
+        <COMPID name="Annuler un entretien" mc="Standard.UseCase" uid="2aeae01f-42a9-451c-87b5-d241ebb04d1b"/>
+        <COMPID name="participant" mc="Standard.Actor" uid="d0da0828-0437-45d7-98b6-cbb37d0a3e46"/>
+        <COMPID name="Confirmer la présence" mc="Standard.UseCase" uid="3e9b07ed-2785-49f4-8049-1da0fe6c5b18"/>
+        <COMPID name="indiquer leur arrivée dans l'établissement" mc="Standard.UseCase" uid="a8016ed7-d4eb-4557-8354-74a6af13e262"/>
+        <COMPID name="indiquer le début/fin de l'entretien" mc="Standard.UseCase" uid="b1210432-28dc-4500-b7a3-2f56a13692bd"/>
+        <COMPID name="indique le départ" mc="Standard.UseCase" uid="cf46d2f0-c968-4bb9-a150-ef40ca8a6349"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="qt1 : Diagramme de cas d'utilisation" mc="Standard.UseCaseDiagram" uid="49311684-3218-40dd-9ae3-76554a18637c"/>
+        <COMPID name="qt2 : Diagramme de cas d'utilisation avancé" mc="Standard.UseCaseDiagram" uid="c2ac9107-81a6-4fdc-9096-1885e728eaac"/>
+        <COMPID name="qt3 : Diagrammes de sous cas d'utilisation Responsable" mc="Standard.UseCaseDiagram" uid="293ffc56-a831-438a-8a8f-7e2ee1750ab8"/>
+        <COMPID name="qt3 : Diagrammes de sous cas d'utilisation Gerer entretien" mc="Standard.UseCaseDiagram" uid="d19bd499-a374-4eb0-bcca-3e0515088e7a"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
