@@ -1,0 +1,193 @@
+CREATE TABLE ville
+(
+	ville VARCHAR2(55) NOT NULL,
+	xmin NUMBER(5) NOT NULL, 
+	xmax NUMBER(5) NOT NULL, 
+	ymin NUMBER(5) NOT NULL, 
+	ymax NUMBER(5) NOT NULL, 
+	CONSTRAINT VILLE_PK PRIMARY KEY (ville)
+)
+
+
+CREATE TABLE agence
+(
+	code VARCHAR2(55), 
+	ville VARCHAR2(55) NOT NULL,
+	CONSTRAINT AGENCE_PK PRIMARY KEY (code)
+)
+
+ALTER TABLE agence ADD CONSTRAINT FK_AGENCE FOREIGN KEY (ville)
+REFERENCES VILLE(ville)
+
+
+CREATE TABLE pilote
+(
+	plnum NUMBER(5),
+	plnom VARCHAR2(55) NOT NULL,
+	plprenom VARCHAR2(55) NOT NULL,
+	ville VARCHAR2(55) NOT NULL,
+	salaire NUMBER(5) NOT NULL,
+	CONSTRAINT PILOTE_PK PRIMARY KEY (plnum)
+)
+
+ALTER TABLE pilote ADD CONSTRAINT FK_PILOTE FOREIGN KEY (ville)
+REFERENCES VILLE(ville)
+
+
+CREATE TABLE avion
+(
+	avnum NUMBER(5) NOT NULL,
+	avnom VARCHAR2(10) NOT NULL,
+	capacite NUMBER(5) NOT NULL,
+	localisation VARCHAR2(55) NOT NULL,
+	CONSTRAINT AVION_PK PRIMARY KEY (avnum)
+)
+
+ALTER TABLE avion ADD CONSTRAINT FK_AVION FOREIGN KEY (localisation)
+REFERENCES VILLE(ville)
+
+
+CREATE TABLE vol2
+(
+	volnum NUMBER(5),
+	plnum NUMBER(5) NOT NULL,
+	avnum NUMBER(5) NOT NULL,
+	villedep VARCHAR2(55) NOT NULL,
+	villearr VARCHAR2(55) NOT NULL,
+	heuredep VARCHAR2(11) NOT NULL,
+	heurearr VARCHAR2(11) NOT NULL,
+	CONSTRAINT VOL2_PK PRIMARY KEY (volnum)
+)
+
+ALTER TABLE vol2 ADD CONSTRAINT FK_VOL1 FOREIGN KEY (plnum)
+REFERENCES PILOTE(plnum)
+ALTER TABLE vol2 ADD CONSTRAINT FK_VOL2 FOREIGN KEY (avnum)
+REFERENCES AVION(avnum)
+ALTER TABLE vol2 ADD CONSTRAINT FK_VOL3 FOREIGN KEY (villedep)
+REFERENCES VILLE(ville)
+ALTER TABLE vol2 ADD CONSTRAINT FK_VOL4 FOREIGN KEY (villearr)
+REFERENCES VILLE(ville)
+
+
+INSERT INTO VILLE (VILLE, XMIN, XMAX, YMIN, YMAX) VALUES ('DIJON','8950', '9180', '4840','5050');
+INSERT INTO VILLE VALUES ('LYON', '8820', '9080', '7020', '7230');
+INSERT INTO VILLE VALUES ('PARIS', '6310', '6560', '2940', '3110');
+INSERT INTO VILLE VALUES ('MARSEILLE', '9660', '9930', '10350', '10580');
+INSERT INTO VILLE VALUES ('NICE', '2730', '2970', '5320', '5540'); /* NICE au lieu de NANTES*/
+INSERT INTO VILLE VALUES ('BORDEAUX', '3930', '4200', '8400', '8580');
+
+INSERT INTO PILOTE VALUES ('1', 'Solomon', 'Asres', 'PARIS', '21000');
+INSERT INTO PILOTE VALUES ('2', 'Barth', 'Florie', 'MARSEILLE', '21000'); /*MARSEILLE au lieu de TOULOUSE*/
+INSERT INTO PILOTE VALUES ('3', 'Nicolle', 'Xavier', 'NICE', '18000');
+INSERT INTO PILOTE VALUES ('4', 'DUPONT', 'Nicolas', 'PARIS', '17000');
+INSERT INTO PILOTE VALUES ('5', 'COCHERIL', 'Boss', 'BORDEAUX', '51000');
+
+INSERT INTO AVION VALUES ('1', 'A300','300','NICE');
+INSERT INTO AVION VALUES ('2', 'A310', '300','NICE');
+INSERT INTO AVION VALUES ('3', 'B707','250','PARIS');
+INSERT INTO AVION VALUES ('4', 'A300','280','LYON');
+
+INSERT INTO AGENCE VALUES ('AG001','PARIS');
+INSERT INTO AGENCE VALUES ('AG002','NICE');
+INSERT INTO AGENCE VALUES ('AG003','NICE');
+INSERT INTO AGENCE VALUES ('AG004','LYON');
+
+INSERT INTO VOL2 VALUES (1,1,1,'NICE','BORDEAUX','11','12');
+INSERT INTO VOL2 VALUES (2,1,2,'PARIS','BORDEAUX','11','12');
+INSERT INTO VOL2 VALUES (3,2,1,'BORDEAUX','LYON','11','12');
+INSERT INTO VOL2 VALUES (4,3,3,'BORDEAUX','LYON','11','12');
+INSERT INTO VOL2 VALUES (5,4,1,'PARIS','NICE','11','12'); 
+
+
+
+
+
+
+MODIFICATIONS :
+
+Renommer une table :
+RENAME ancien_nom TO nouveau_nom;
+
+ex :
+RENAME vol2 TO trajet;
+RENAME pilote TO personnel;
+
+
+Modifier un tuple :
+UPDATE nom_table SET col1=valeur WHERE condition;
+
+ex :
+UPDATE trajet SET VILLEDEP='Lille' WHERE volnum=4;
+UPDATE trajet SET HEUREARR='32' WHERE volnum=4;
+
+Supprimer un tuple :
+DELETE FROM nom_table WHERE condition;
+
+ex :
+DELETE FROM trajet WHERE volnum=5;
+
+Modifier la structure d'une table
+ALTER TABLE nom_table 
+ADD ...
+
+Afficher structure d'une table :
+describe nom_table;
+
+// **************************** REQUETES ****************************
+
+1. describe trajet;
+
+2. SELECT * FROM trajet;
+
+3. SELECT plnom AS Nom,plprenom AS Prénom,ville as Ville
+FROM personnel
+ORDER BY plnom ASC;
+
+4. SELECT plnom AS Nom,plprenom AS Prénom,salaire AS Salaire
+FROM personnel
+WHERE salaire > 20000
+ORDER BY salaire DESC;
+
+5. SELECT plnom AS Nom,plprenom AS Prénom
+FROM personnel
+WHERE salaire = ANY(10000,20000);
+
+6. SELECT * FROM personnel
+WHERE salaire > (SELECT AVG(salaire) FROM personnel);
+
+7. SELECT avnum,avnom FROM avion WHERE localisation = 'PARIS';
+
+8. SELECT plnom AS Nom,plprenom AS Prénom
+FROM personnel
+WHERE salaire > &salaire; //&salaire permet de pouvoir saisir une valeur
+
+9. SELECT AVNUM, AVNOM, CAPACITE, LOCALISATION 
+FROM avion,personnel
+WHERE avion.localisation = personnel.ville
+AND personnel.plnom = '&valeur_à_saisir';
+
+10. SELECT VOLNUM,VILLEDEP,VILLEARR,HEUREDEP,HEUREARR,AVNOM,PLNOM
+FROM trajet,avion,personnel
+WHERE volnum = &num_vol;
+
+11. SELECT plnom AS Nom,plprenom AS Prénom,volnum
+FROM trajet,personnel
+WHERE personnel.plnum IN 
+	(SELECT trajet.plnum FROM trajet GROUP BY trajet.plnum);
+
+12. SELECT avnum,avnom FROM avion
+WHERE avnum IN (
+	SELECT trajet.avnum FROM trajet GROUP BY trajet.avnum);
+
+13. SELECT COUNT(*) FROM trajet;
+14. SELECT SUM(capacite) FROM avion;
+15. SELECT AVG(HEUREARR - HEUREDEP) FROM trajet;
+16. SELECT MIN(capacite),MAX(capacite) FROM avion;
+17. SELECT plnum,SUM(HEUREARR - HEUREDEP) FROM trajet GROUP BY plnum;
+
+
+
+
+
+
+
