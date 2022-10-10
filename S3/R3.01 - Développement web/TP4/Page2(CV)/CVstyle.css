@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: rgb(224, 224, 224);
+}
+
+/* ******************* DEUX PARTIES ******************* */
+main {
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    background-color: white;
+    margin-right: 12px;
+    padding: 10px;
+    margin: 10px;
+}
+#gauche{
+    width: 250px;
+    background-color: rgb(46, 182, 206);
+}
+#droite{
+    width: 750px;
+}
+
+h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    padding-left: 7px;
+}
+h4 {
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+p {
+    font-size: 14px;
+}
+.separation {
+    margin-bottom: 7px;
+    margin-top: 7px;
+    background-color: rgb(224, 224, 224);
+    border: none;
+    height: 2px;
+}
+.separationBleu{
+    margin-bottom: 7px;
+    margin-top: 7px;
+    background-color: rgb(46, 182, 206);
+    border: none;
+    height: 2px;
+}
+
+/* ******************* PARTIE GAUCHE ******************* */
+#profile{
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.containerCoords{
+    padding-left: 10px;
+    padding-bottom: 8px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.document {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px rgb(224, 224, 224) solid;
+    margin-bottom: 7px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+.icon {
+    margin-left: 3px;
+    height: 14px;
+}
+
+#reseauContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.reseaux {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.imgreseaux {
+    height: 35px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+}
+input{
+    border: none;
+    background-color: rgb(224, 224, 224);
+    padding: 8px;
+    margin-bottom: 15px;
+}
+#message {
+    border: none;
+    background-color: rgb(224, 224, 224);
+    resize: vertical;
+    padding: 8px;
+    margin-bottom: 20px;
+    height: 100px;
+}
+#sendMsg {
+    padding: 8px;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+/* ******************* PARTIE DROITE ******************* */
+.niveauProg {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.langue {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    margin-bottom: 25px;
+}
+.langueTitre{
+    font-size: 14px;
+}
+.langueProgressFond{
+    background-color: rgb(224, 224, 224);
+}
+#HCProgressReel{
+    background-color: rgb(46, 182, 206);
+    height: 100%;
+    width: 75%;
+}
+#CPPProgressReel{
+    background-color: rgb(46, 182, 206);
+    height: 100%;
+    width: 55%;
+}
+#SQLProgressReel{
+    background-color: rgb(46, 182, 206);
+    height: 100%;
+    width: 65%;
+}
+#PyProgressReel {
+    background-color: rgb(46, 182, 206);
+    height: 100%;
+    width: 45%;
+}
+
+.programming{
+    display: flex;
+    align-items: center;
+    padding-left: 7px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.languages {
+    font-size: 12px;
+    padding: 5px;
+    background-color: rgb(224, 224, 224);
+    margin-right: 7px;
+    margin-bottom: 7px;
+}
+
+.paragraphe{
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.texts {
+    padding-bottom: 20px;
+}
+.infosTexts {
+    padding-bottom: 7px;
+}
+.exp{
+    padding-left: 10px;
+    padding-right: 7px;
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+
+/* ******************* RESPONSIVITE ******************* */
+@media screen and (max-width: 1074px) {
+    #droite{
+        width: 250px;
+    }
+    .langue {
+        grid-template-columns: 1fr;
+        grid-template-rows: 70% 30%;
+        margin-bottom: 25px;
+    }
+    .langueTitre{
+        margin-bottom: 25px;
+    }
+    .programming{
+        flex-wrap: wrap;
+    }
+    .languages {
+        padding: 5px;
+    }
+    .exp{
+        grid-template-columns: 32% 68%;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+}

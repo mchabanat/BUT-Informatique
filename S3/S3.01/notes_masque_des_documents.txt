@@ -1,0 +1,24 @@
+1. Selectionner le logiciel (word, libre office...) qu'on va utiliser
+2. création fichier 
+3. mise en forme 
+
+
+
+Mise en page :
+- format
+- orientation page
+- marges (2,5 pour un memoire par exemple)
+- pied de page (numero de pages a partir de la 2) / en-tête
+
+
+Mise en forme :
+- typographies + police
+	- taille = minimum 11 
+	- couleur = simplicité
+	- polices (2, 3 maxi)
+	- interligne = 1 ou 1,5
+- hierarchie 
+	- titres I, II, III
+	- nouveau chapitre : nouvelle page 
+- texte : ecrire contenu
+	- paragraphes

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CVstyle.css">
+    <title>CV Matis Chabanat</title>
+</head>
+<body>
+    <main role="main">
+        <!-- *********************** PARTIE GAUCHE *********************** -->
+        <section id="gauche">
+            <article>
+                <h3 class="subtitle">MES COORDONNEES</h3>
+                <img aria-label="Voici ma photo de profil" id="profile" src="https://via.placeholder.com/250" alt="photo de profil">
+                <div class="containerCoords">
+                    <h4 class="mesCoordonnees">NOM</h4>
+                    <p>Matis Chabanat</p>
+                </div>
+                <div class="containerCoords">
+                    <h4 class="mesCoordonnees">AGE</h4>
+                    <p>20</p>
+                </div>
+                <div class="containerCoords">
+                    <h4 class="mesCoordonnees">VILLE</h4>
+                    <p>Bayonne, France</p>
+                </div>
+                <div class="containerCoords">
+                    <h4 class="mesCoordonnees">EXPERIENCE</h4>
+                    <p>Sans</p>
+                </div>
+                <div class="containerCoords">
+                    <h4 class="mesCoordonnees">DOMAINE</h4>
+                    <p>Informatique</p>
+                </div>
+                <div class="containerCoords">
+                    <h4 class="mesCoordonnees">TELEPHONE</h4>
+                    <p>123-456-6789</p>
+                </div>
+                <div class="containerCoords">
+                    <h4 class="mesCoordonnees">EMAIL</h4>
+                    <p>contactmoi@gmail.com</p>
+                </div>
+                <div class="containerCoords">
+                    <h4 class="mesCoordonnees">SITE WEB</h4>
+                    <a aria-label="Accéder à mon portfolio en ligne" href="../Page1(template tp2)/index.html"><p>portfolio-matis-chabanat.fr</p></a>
+                </div>
+            </article>
+            <article>
+                <hr class="separation">
+                <h3 class="subtitle">TELECHARGEZ MON CV</h3>
+                <hr class="separation">
+                <a aria-label="Acceder au téléchargement de mon CV au format PDF" class="document" href="#"><span>MatisChabanat_CV.pdf</span><img class="icon" src="images/iconpdf.svg" alt="logo pdf"></a>
+                <a aria-label="Acceder au téléchargement de mon CV au format word (docx)" class="document" href="#"><span>MatisChabanat_CV.docx</span><img class="icon" src="images/word.png" alt="logo word"></a>
+            </article>
+            <article>
+                <hr class="separation">
+                <h3 class="subtitle">MES RESEAUX SOCIAUX</h3>
+                <hr class="separation">
+                <div id="reseauContainer">
+                    <a aria-label="Accéder à mon compte twitter" class="reseaux" href="https://twitter.com/Matviuh"><img class="imgreseaux" src="images/twitter.png" alt="twitter"></a>
+                    <a aria-label="Accéder à mon compte facebook" class="reseaux" href="https://www.facebook.com/profile.php?id=100014360461777"><img class="imgreseaux" src="images/facebook.png" alt="facebook"></a>
+                    <a aria-label="Accéder à mon compte instagram" class="reseaux" href="https://www.instagram.com/matis.cbn/"><img class="imgreseaux" src="images/instagram.png" alt="instagram"></a>
+                    <a aria-label="Accéder à mon compte LinkedIn" class="reseaux" href="https://www.linkedin.com/in/matis-chabanat/"><img class="imgreseaux" src="images/linkedin.png" alt="linkedin"></a>
+                    <a aria-label="Accéder à mon compte GitHub" class="reseaux" href="https://github.com/mchabanat"><img class="imgreseaux" src="images/github.png" alt="github"></a>
+                </div>
+            </article>
+            <article>
+                <hr class="separation">
+                <h3 class="subtitle">CONTACTEZ MOI</h3>
+                <hr class="separation">
+                <form action="#">
+                    <input aria-label="Saisir votre email" type="email" placeholder="Email">
+                    <input aria-label="Saisir le sujet de votre mail" type="text" placeholder="Sujet">
+                    <textarea aria-label="Ecrivez moi votre message !" id="message" placeholder="Message"></textarea>
+                </form>
+                <a aria-label="Séléctionnez pour envoyer le message que vous m'avez ecrit" id="sendMsg" href="#">ENVOYER</a>
+            </article>
+        </section>
+
+        <!-- *********************** PARTIE DROITE *********************** -->
+        <section id="droite">
+            <article>
+                <h3 class="subtitle">ME CONCERNANT</h3>
+                <hr class="separationBleu">
+                <div class="paragraphe">
+                    <p class="texts">Actuellement étudiant en BUT Informatique à l’IUT de Bayonne et du Pays Basque, je me suis découvert une passion dans le domaine de la programmation et plus globalement de l’informatique. Je met tout en œuvre pour percer dans cette voie, tout en prenant du plaisir sur les divers projets développés.</p>
+                    <p class="texts">Je suis donc à la recherche d'un stage d'une durée de 10 semaines, à partir du 10 Avril 2022 qui me permettrait premièrement de valider ma deuxième année de BUT et deuxièmenent d'apprendre et de préparer au mieux mon futur métier</p>
+                </div>
+            </article>
+            <article>
+                <h3 class="subtitle">COMPETENCES</h3>
+                <hr class="separationBleu">
+                <div class="paragraphe">
+                    <p class="texts">Etant dans une formation Informatique depuis plus d'un an, j'ai pu acquérir des compétences dans plusieurs domaines comme la programmation, la gestion de bases de données ou encore la gestion de projet.</p>
+                    <p class="texts">Toutes ces compétences m'ont permis de développer mon niveau dans différents langages comme le C++, le HTML/CSS ou encore MySQL. J'ai aussi pu apprendre le fonctionnement de la méthode agile SCRUM qui consiste à réaliser des projets en petite équipe et en étant très proche du client, qui lui nous donne ses directives très régulièrement.</p>
+                </div>
+                <div class="niveauProg">
+                    <div class="langue">
+                        <span class="langueTitre">HTML5/CSS3</span>
+                        <div class="langueProgressFond">
+                            <div id="HCProgressReel"></div>
+                        </div>
+                    </div>
+                    <div class="langue">
+                        <span class="langueTitre">C++</span>
+                        <div class="langueProgressFond">
+                            <div id="CPPProgressReel"></div>
+                        </div>
+                    </div>
+                    <div class="langue">
+                        <span class="langueTitre">MySQL</span>
+                        <div class="langueProgressFond">
+                            <div id="SQLProgressReel"></div>
+                        </div>
+                    </div>
+                    <div class="langue">
+                        <span class="langueTitre">Python</span>
+                        <div class="langueProgressFond">
+                            <div id="PyProgressReel"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="programming">
+                    <p class="languages">HTML5</p>
+                    <p class="languages">CSS3</p>
+                    <p class="languages">Web Design</p>
+                    <p class="languages">Python</p>
+                    <p class="languages">C++</p>
+                    <p class="languages">SCRUM Master</p>
+                    <p class="languages">MySQL</p>
+                </div>
+            </article>
+            <article>
+                <h3 class="subtitle">EXPERIENCES PROFESSIONELLES</h3>
+                <hr class="separationBleu">
+                <div class="exp">
+                    <h4>2021-2022</h4>
+                    <div class="desc">
+                        <h4>Agent polyvalent dans un complexe sportif</h4>
+                        <div class="paragraphe">
+                            <p class="infosTexts">Hossegor Tennis Club</p>
+                            <p class="infosTexts">Hossegor, France</p>
+                            <p class="texts">Rénovation de cours de tennis, cordage de raquettes, accueil des joueurs et organisation d'un tournoi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp">
+                    <h4>2020-2021</h4>
+                    <div class="desc">
+                        <h4>Bénévolat dans un cinéma</h4>
+                        <div class="paragraphe">
+                            <p class="infosTexts">Cinéma Grand Ecran</p>
+                            <p class="infosTexts">Tyrosse, France</p>
+                            <p class="texts">Accueil des spéctateurs, aide à la projection des films, entretien de la salle.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp">
+                    <h4>Eté 2020</h4>
+                    <div class="desc">
+                        <h4>Agent de nettoyage</h4>
+                        <div class="paragraphe">
+                            <p class="infosTexts">Adecco Intérim</p>
+                            <p class="infosTexts">Seignosse, France</p>
+                            <p class="texts">Ménage de mobile-home dans un camping</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 class="subtitle">FORMATION</h3>
+                <hr class="separationBleu">
+                <div class="exp">
+                    <h4>2021- ...</h4>
+                    <div class="desc">
+                        <h4>BUT Informatique</h4>
+                        <div class="paragraphe">
+                            <p class="infosTexts">UPPA</p>
+                            <p class="infosTexts">Anglet, France</p>
+                            <p class="texts">IUT de Bayonne et du Pays Basque : étude de l'algorithmique et de la programmation en divers langages, création et utilisation de bases de données, réalisation de projets en équipe tels que des jeux</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>

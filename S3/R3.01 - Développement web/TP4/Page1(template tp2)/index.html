@@ -12,10 +12,10 @@
             <p>Computer Sciences</p>
             <nav>
                 <ul>
-                    <li><a class="grisatre" href="#">A propos</a></li>
-                    <li><a class="grisatre" href="#">Services</a></li>
-                    <li><a class="grisatre" href="#">Portfolio</a></li>
-                    <li><a class="grisatre" href="#">Contact</a></li>
+                    <li><a aria-label="Accès à la page A propos qui me présente" class="grisatre" href="#">A propos</a></li>
+                    <li><a aria-label="Accès à la page Services" class="grisatre" href="#">Services</a></li>
+                    <li><a aria-label="Accès à la page portfolio qui sont tous mes projets" class="grisatre" href="#">Portfolio</a></li>
+                    <li><a aria-label="Accès à la page Contact qui contiendra mes coordonnées" class="grisatre" href="#">Contact</a></li>
                 </ul>
             </nav>
         </section>
@@ -23,8 +23,8 @@
         <section id="banniere">
             <h1 class="uppercase">Matis Chabanat</h1>
             <hr class="tiretRouge">
-            <p id="subscription">Bonsoir à tous, les amis !</p>
-            <a id='boutonOffre' href="#">Mes projets</a>
+            <p id="subscription">Bonjour et bienvenue sur mon Portfolio !</p>
+            <a aria-label="Accéder à tous mes projets" id='boutonOffre' href="#">Mes projets</a>
         </section>
     </header>
 
@@ -34,41 +34,42 @@
             <hr class="tiretNoir">
             <p id="desc">Actuellement étudiant en BUT Informatique à l’IUT de Bayonne et du Pays Basque, je me suis découvert une passion dans le domaine de la programmation et plus globalement de l’informatique. Je met tout en œuvre pour percer dans cette voie, tout en prenant du plaisir sur les divers projets développés. Ce portfolio a pour but de présenter les différents projets sur lesquels j’ai travaillé ces derniers temps aussi bien dans le cadre scolaire que personnel. Je recherche également un emploi dans la cyber sécurité. Vous pouvez également visualiser mon CV et le télécharger.
             </p>
-            <a id='boutonRaces' href="../Page2(CV)/cv.html">Visualiser mon CV</a>
+            <a aria-label="Accéder à mon CV en ligne" id='boutonRaces' href="../Page2(CV)/cv.html">Visualiser mon CV</a>
         </article>
         <article id="bienEtre">
-            <h2>Pour leurs Biens êtres</h2>
+            <h2>Portfolio</h2>
             <hr class="tiretRouge">
             <section id="bienEtreArticles">
                 <div class="article">
-                    <img class="icon" src="images/puissance4.png" alt="Puissance 4">
+                    <img aria-label="Image représentant le jeu du puissance 4" class="icon" src="images/puissance4.png" alt="Puissance 4">
                     <h3>Puissance 4</h3>
                     <p class="descriptionArticle">Projet personnel dans lequel j'ai développé le jeu du Puissance 4 en C++ dans la console.</p>
                 </div>
                 <div class="article">
-                    <img class="icon" src="images/bataille-navale.jpeg" alt="bataille navale">
+                    <img aria-label="Image représentant le jeu de la bataille navale" class="icon" src="images/bataille-navale.jpeg" alt="bataille navale">
                     <h3>Bataille Navale</h3>
                     <p class="descriptionArticle">Projet scolaire en équipe de 2 dans lequel j'ai développé le jeu de la Bataille Navale en C++ dans la console.</p>
                 </div>
                 <div class="article">
-                    <img class="icon" src="images/chifoumi.PNG" alt="chifoumi">
+                    <img aria-label="Image représentant la fenêtre que j'ai du créer pour jouer au Chifoumi" class="icon" src="images/chifoumi.PNG" alt="chifoumi">
                     <h3>Chifoumi</h3>
                     <p class="descriptionArticle">Projet scolaire en équipe de 3 dans lequel j'ai développé le chifoumi sur interface graphique avec Qt</p>
                 </div>
                 <div class="article">
-                    <img class="icon" src="images/demineur.png" alt="démineur">
+                    <img aria-label="Image représentant le jeu du démineur" class="icon" src="images/demineur.png" alt="démineur">
                     <h3>Démineur</h3>
                     <p class="descriptionArticle">Projet personnel dans lequel j'ai développé le jeu du Démineur sur le web avec du Javascript</p>
                 </div>
             </section>
+            <a aria-label="accéder à tous mes projets" id='boutonProjets' href="#">Visualiser tous mes projets</a>
         </article>
         <article id="grilleImg">
-            <img class="Images" src="images/1.jpg" alt="beau chien">
-            <img class="Images" src="images/2.jpg" alt="très beau pellage">
-            <img class="Images" src="images/3.jpg" alt="chien exceptionnel">
-            <img class="Images" src="images/4.jpg" alt="race rare">
-            <img class="Images" src="images/5.jpg" alt="arthur le cabot">
-            <img class="Images" src="images/6.jpg" alt="amusement du dog">
+            <img aria-label="Image représentant le domaine de la cybersécurité" class="Images" src="images/cybersecurite.jpg" alt="cybersécurité">
+            <img aria-label="Image représentant le logo de l'IUT où je travaille actuellement." class="Images" src="images/iut.jpg" alt="logo iut bayonne">
+            <img aria-label="Image représentant le domaine du Développement web" class="Images" src="images/web.jpg" alt="représentation du dev web">
+            <img aria-label="Image représentant le logo d'un language de base de données" class="Images" src="images/phpmyadmin.png" alt="Logo de phpMyAdmin">
+            <img aria-label="Image représentant la programmation dans le domaine spatial" class="Images" src="images/spacex.jpg" alt="Programmation dans le domaine spatial">
+            <img aria-label="Image représentant une marque de composants informatiques" class="Images" src="images/msi.png" alt="Logo MSI (marque de composants informatiques)">
         </article>
     </main>
 
@@ -78,11 +79,11 @@
         <p id="titreContact">N'hesitez pas à prendre contact</p>
         <section id="contact">
             <div class="contactContainer">
-                <img class="iconContact" src="images/phone.png" alt="logo téléphone">
-                <p>123-456-6789</p>
+                <img aria-label="Mon numéro de téléphone" aria-describedby="numTel" class="iconContact" src="images/phone.png" alt="logo téléphone">
+                <p id="numTel">123-456-6789</p>
             </div>
             <div class="contactContainer">
-                <img class="iconContact" src="images/email.png" alt="logo mail">
+                <img aria-label="Mon adresse email" aria-describedby="email" class="iconContact" src="images/email.png" alt="logo mail">
                 <p id="email">contactmoi@gmail.com</p>
             </div>
         </section>
