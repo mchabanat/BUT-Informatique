@@ -1,0 +1,8 @@
+public class nom_classe{
+	//CONSTANTES -non-
+	//ATTRIBUTS -non-
+	//CONSTRUCTEURS -non-
+	//ENCAPSULATION -non-
+	//METHODES USUELLES -non-
+	//METHODES SPECIFIQUES -non-
+}

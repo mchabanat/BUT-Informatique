@@ -1,0 +1,18 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: lightgrey;
+    margin:40px;
+}
+
+h1 {
+    color: blue;
+    font-style: italic;
+    text-transform: uppercase;
+}
+li {
+    list-style-type: square;
+}
+
+li::marker{
+    color: aqua;
+}
