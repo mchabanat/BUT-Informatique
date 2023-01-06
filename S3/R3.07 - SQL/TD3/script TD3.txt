@@ -1,0 +1,149 @@
+/* TABLE DEPT */
+CREATE TABLE dept
+(
+	numDep NUMBER(1) PRIMARY KEY,
+	nomDep VARCHAR2(50),
+	nomLoc VARCHAR2(50)
+);
+
+INSERT INTO dept
+VALUES(1,'RECHERCHE','DIJON');
+INSERT INTO dept
+VALUES(2,'DEVELOPPEMENT','NEW-YORK');
+INSERT INTO dept
+VALUES(3,'FACTURATION','PARIS');
+INSERT INTO dept
+VALUES(4,'DIRECTION','LONDRES');
+
+
+
+/* TABLE EMP */
+CREATE TABLE emp 
+(
+	numEmp NUMBER(4) PRIMARY KEY,
+	nomComplet VARCHAR2(50),
+	profession VARCHAR2(20) CHECK (profession IN ('CHEF DE PROJET', 'CHERCHEUR', 'DEVELOPPEUR', 'COMPTABLE', 'DIRECTEUR')) NOT NULL,
+	chef NUMBER(1),
+	salaire NUMBER(9,2),
+	numDep NUMBER(1),
+	FOREIGN KEY (numDep) REFERENCES dept(numDep)
+);
+
+
+INSERT INTO emp
+VALUES(1,'BARTH Florent','CHEF DE PROJET',3,13000,2);
+INSERT INTO emp
+VALUES(2,'WAVIER Richard','CHERCHEUR',3,21000,1);
+INSERT INTO emp (numEmp,nomComplet,profession,salaire,numDep)
+VALUES(3,'NICOLLE Chris','CHERCHEUR',25000,1);
+INSERT INTO emp
+VALUES(4,'BLAKE John','DEVELOPPEUR',6,8000,2);
+INSERT INTO emp
+VALUES(5,'DUPONT Jean','DEVELOPPEUR',3,9000,2);
+INSERT INTO emp
+VALUES(6,'MARTIN Alexandre','COMPTABLE',3,10000,3);
+INSERT INTO emp
+VALUES(7,'RAY Benjamin','COMPTABLE',3,10000,3);
+INSERT INTO emp
+VALUES(8,'MILLER Pascal','DEVELOPPEUR',3,9000,2);
+INSERT INTO emp
+VALUES(9,'FORD John','DIRECTEUR',3,30000,4);
+
+
+
+/* PROGRAMME PLSQL A COMMENTER */
+DECLARE
+	-- Déclaration de n
+	n NUMBER(2);
+	-- Déclaration du Curseur employes
+	CURSOR employes IS SELECT numEmp, nomComplet, salaire FROM EMP;
+	-- Déclaration de newsal du même type que l'attribut salaire de la table employé
+	newsal emp.salaire%TYPE;
+	-- Création d'une variable de traitement d'erreur
+	empv EXCEPTION;
+BEGIN
+	-- Selection de tous les attributs pour tous les tuples de la table employé
+	SELECT COUNT(*) INTO n FROM EMP;
+	-- Condition si n est égal à 0
+	IF n=0 THEN
+		-- Renvoie une erreur
+		RAISE empv;
+	END IF;
+	-- Début d'une boucle dans employes
+	FOR employe IN employes LOOP
+		-- Affecte à newsale le salaire de l'employé visité incrémenté de 50€
+		 newsal:=employe.salaire+50;
+		-- Remplace le salaire dans la table par newsal
+		UPDATE EMP SET SALAIRE=newsal where NUMEMP = employe.numemp;
+	END LOOP;
+	Commit;
+-- Définition de l'erreur
+EXCEPTION
+	-- Quand empv est raise alors le message "Message d'erreur est affiché
+	WHEN empv THEN dbms_output.put_line('Message d''erreur !');
+END; 
+
+
+
+
+/* PARTIE B */
+set serveroutput on;
+
+CREATE OR REPLACE PROCEDURE hello_world 
+IS
+-- Déclaration de variables. 
+	chaine VARCHAR2(50);
+BEGIN
+	-- Corps de la procédure
+	chaine := 'Hello World';
+	dbms_output.put_line(chaine); 
+END;
+
+-- Executer la procédure 
+exec hello_world;
+
+
+
+CREATE OR REPLACE FUNCTION getSalaire (nomEmp IN VARCHAR2) 
+RETURN NUMBER IS
+-- Déclaration de variables.	
+	sal NUMBER(9);
+BEGIN
+-- Corps de la fonction
+	SELECT salaire INTO sal FROM emp WHERE nomComplet = nomEmp;
+	RETURN sal;
+END;
+
+-- Executer la fonction 
+DECLARE
+BEGIN
+	dbms_output.PUT_LINE('XAVIER Richard : ' || getSalaire('XAVIER Richard'));
+END;
+
+
+
+/* PARTIE C */
+CREATE OR REPLACE PROCEDURE affecter_emp_dept (nomEmp IN VARCHAR2, newDept IN NUMBER(1)) AS
+-- Déclaration de variables.
+BEGIN
+-- Corps de la procédure
+	UPDATE emp SET numDep = newDept WHERE nomComplet = nomEmp;
+END
+
+CREATE OR REPLACE FUNCTION exist_emp (nomEmp IN VARCHAR2) 
+RETURN BOOLEAN IS
+-- Déclaration de variables.
+DECLARE	
+	exist BOOLEAN;
+	nb NUMBER(4);
+	
+BEGIN
+-- Corps de la fonction
+	SELECT COUNT(*) INTO nb FROM emp WHERE nomComplet = nomEmp;
+	
+	IF nb = 0 THEN
+		exist := FALSE;
+	ELSE
+		exist := TRUE;
+	END IF;
+END;

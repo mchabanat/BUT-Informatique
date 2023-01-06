@@ -1,0 +1,110 @@
+Agences:
+Private Sub LECTURE_Click()
+Dim db As DAO.Database
+Dim db As DAO.Recordset
+Set db = CurrentDb()
+Set rs = db.OpenRecordset ("SELECT * FROM agence", dbOpenDynaset)
+If Not rs.EOF Then
+	MsgBox rs("Ville")
+	rs.MoveNext 
+End If
+End Sub
+
+
+Private Sub INSERTION_DblClick(Cancel As Integer)
+Dim db As DAO.Database
+Dim db As DAO.Recordset
+Set db = CurrentDb()
+Set tb_client = db.OpenRecordset ("AGENCE", dbOpenDynaset)
+tb_client.AddNew
+tb_client("CODE") = "AG007"
+tb_client("VILLE") = "TOURS"
+tb_client.Update
+End Sub 
+
+
+Private Sub MODIFICATION_MouseMove()
+Dim db As DAO.Database
+Dim db As DAO.Recordset
+Set db = CurrentDb()
+Set rs = db.OpenRecordset ("SELECT * FROM agence WHERE [ville] = 'TOURS' ", dbOpenDynaset)
+If Not rs.EOF Then
+	rs.edit
+	rs("VILLE") = 'POITIERS'
+	rs.Update
+End If
+End Sub
+
+
+Private Sub SUPPRIMER_Click()
+Dim db As DAO.Database
+Dim db As DAO.Recordset
+Set db = CurrentDb()
+Set rs = db.OpenRecordset ("SELECT * FROM agence WHERE [ville] = 'POITIERS' ", dbOpenDynaset)
+If Not rs.EOF Then
+	rs.delete
+	rs.MoveNext
+End If
+End Sub
+
+
+
+
+
+Avions:
+Private Sub DEBUT_Click()
+Dim db As DAO.Database
+Dim db As DAO.Recordset
+Set db = CurrentDb()
+Set rs = db.OpenRecordset ("AVION", dbOpenDynaset)
+If Not rs.EOF Then
+	rs.MoveFirst
+End If
+End Sub
+
+
+Private Sub PRECEDENT_Click()
+Dim db As DAO.Database
+Dim db As DAO.Recordset
+Set db = CurrentDb()
+Set rs = db.OpenRecordset ("AVION", dbOpenDynaset)
+If Not rs.BOF Then
+	rs.MovePrevious
+End If
+End Sub
+
+
+Private Sub SUIVANT_Click()
+Dim db As DAO.Database
+Dim db As DAO.Recordset
+Set db = CurrentDb()
+Set rs = db.OpenRecordset ("AVION", dbOpenDynaset)
+If Not rs.EOF Then
+	rs.MoveNext
+End If
+End Sub
+
+
+Private Sub FIN_Click()
+Dim db As DAO.Database
+Dim db As DAO.Recordset
+Set db = CurrentDb()
+Set rs = db.OpenRecordset ("AVION", dbOpenDynaset)
+If Not rs.EOF Then
+	rs.MoveLast
+End If
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+

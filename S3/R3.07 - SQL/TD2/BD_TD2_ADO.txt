@@ -1,0 +1,79 @@
+/***** ADO *****/
+
+Option Compare Database
+Dim cn As New ADODB.Connection
+Dim rs As New ADODB.Recordset
+
+
+Private Sub Form_Open(Cancel As Integer)
+Set objConn = CurrentProject.Connection
+rs.Open "R1_TD2",objConn,adOpenKeySet,adLockOptimistic
+End Sub
+
+
+Private Sub Debut_Click()
+rs.MoveFirst
+If Not rs.EOF Then
+	Text22.Value = "L'avion " & rs.Fields("AVNOM").Value & " a une capacité de : " & rs.Fields("CAPACITE").Value
+End If
+End Sub
+
+
+Private Sub Precedent_Click()
+If Not rs.BOF Then
+	rs.MovePrevious
+	Text22.Value = "L'avion " & rs.Fields("AVNOM").Value & " a une capacité de : " & rs.Fields("CAPACITE").Value
+Else 
+	MsgBox ("C'est le premier tuple !")
+	rs.MoveFirst
+End If
+End Sub
+
+
+Private Sub Suivant_Click()
+If Not rs.EOF Then
+	rs.MoveNext
+	Text22.Value = "L'avion " & rs.Fields("AVNOM").Value & " a une capacité de : " & rs.Fields("CAPACITE").Value
+Else 
+	MsgBox("C'est le dernier Tuple !")
+	rs.MoveLast
+End If
+End Sub
+
+Private Sub Fin_Click()
+If Not rs.EOF Then
+	rs.MoveLast
+	Text22.Value = "L'avion " & rs.Fields("AVNOM").Value & " a une capacité de : " & rs.Fields("CAPACITE").Value
+End If
+End Sub
+
+
+
+
+
+/****** Carte ******/
+Option Compare Database
+Dim cn As New ADODB.Connection
+Dim rs As New ADODB.Recordset
+
+Private Sub Image_MouseMove()
+Text1.Value = X
+Text2.Value = Y
+End Sub
+
+
+Private Sub Image_Click()
+Set objConn = CurrentProject.Connection
+rs.Open "SELECT * FROM Ville",objConn,adOpenKeySet,adLockOptimistic
+
+End Sub
+
+
+
+
+
+
+
+
+
+
