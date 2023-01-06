@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2</title>
+</head>
+<body>
+    <form action="traitement.php" method="post">
+        <h1>Formulaire don</h1>
+
+        <label for="name">Entrez votre Nom : </label>
+        <input type="text" name="name" placeholder="Nom">
+        <br>
+
+        <label for="age">Entrez votre Age : </label>
+        <input type="number" name="age" placeholder="Age">
+        <br>
+
+        <label for="email">Entrez votre Mail : </label>
+        <input type="email" name="email" placeholder="E-Mail">
+        <br>
+
+        <label for="don">Entrez la valeur du don : </label>
+        <input type="number" name="don" >
+        <br>
+        <br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+    <br>
+    <form action="envoyerMails.php">
+        <input type="submit" value="Resultats">
+    </form>
+</body>
+</html>
