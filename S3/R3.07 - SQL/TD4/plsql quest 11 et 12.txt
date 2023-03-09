@@ -1,0 +1,34 @@
+CREATE OR REPLACE FUNCTION app_emp_dept (nom_emp IN VARCHAR2, num_dep IN NUMBER)
+RETURN VARCHAR2 IS 
+	message VARCHAR2(100);
+	num NUMBER(4);
+BEGIN
+	SELECT numdep INTO num FROM emp WHERE nom = nom_emp;
+	
+	IF num = num_dep THEN 
+		message := 'Cet employé appartient au département ' || num_dep;
+	ELSE 
+		message := 'Cet employé n\'appartient pas au département ' || num_dep;
+	END IF;
+	
+	RETURN message;
+END;
+
+
+CREATE OR REPLACE PROCEDURE maj_emp 
+AS salaire NUMBER(9);
+
+BEGIN 
+	UPDATE emp SET salaire = salaire - 200
+		WHERE numDep = 1;
+	UPDATE emp SET salaire = salaire + 40
+		WHERE numDep = 2;
+	UPDATE emp SET salaire = salaire * 2
+		WHERE numDep = 3;
+		
+	SELECT AVG(salaire) INTO moyenne FROM emp;
+	UPDATE emp SET salaire = moyenne
+		WHERE numDep = 4;
+END;
+
+EXEC(maj_dep);

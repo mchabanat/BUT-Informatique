@@ -1,0 +1,35 @@
+CREATE OR REPLACE PROCEDURE insert_emp (num_emp IN NUMBER, nom_complet IN VARCHAR2, salaire IN NUMBER, nom_ville IN VARCHAR2, code_postal IN NUMBER, num_tel IN NUMBER, fax IN VARCHAR2)  
+AS 
+BEGIN 
+	INSERT INTO emp (NUMEMP, NOMCOMPLET, Salaire, Ville, CP, Tel, Fax) 
+	VALUES (num_emp,nom_complet,salaire,nom_ville,code_postal,num_tel,fax); 
+END;
+
+
+CREATE OR REPLACE PROCEDURE maj_emp (nom_emp IN VARCHAR2, new_salaire IN NUMBER)
+AS salaire NUMBER(9);
+BEGIN 
+	UPDATE emp SET salaire = new_salaire
+		WHERE NOMEMP = nom_emp;
+END;
+
+
+CREATE OR REPLACE FUNCTION count_emp
+RETURN NUMBER IS 
+	nb_emp NUMBER(4);
+BEGIN
+	SELECT COUNT(*) INTO nb_emp FROM emp;
+	
+	RETURN nb_emp;
+END;
+
+
+CREATE OR REPLACE FUNCTION count_emp (nom_ville IN VARCHAR2)
+RETURN NUMBER IS 
+	nb_emp NUMBER(4);
+BEGIN
+	SELECT COUNT(*) INTO nb_emp FROM emp WHERE Ville = nom_ville;
+	
+	RETURN nb_emp;
+END;
+
