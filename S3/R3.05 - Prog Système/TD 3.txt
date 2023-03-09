@@ -1,0 +1,72 @@
+1°) #include <unistd.h>
+// Initialisation tableau 
+const unsigned int TAILLE = ...;
+
+// Créer un tube
+int tube1[2];
+int tube2[2];
+
+if(pipe(tube==-1) {
+	printf("impossible de créer le tube");
+	exit(EXIT_FAILURE);
+}
+
+int tube2[2];
+
+// Créer un processus fils
+pid_t id = fork();
+
+
+// Calcul de la somme
+int i;
+int somme = 0;
+int sommeFinale;
+
+switch (id) {
+case -1:
+	printf("impossible de créer un nouveau processus fils");
+	break;
+case 0: //processus fils calcule somme dans premiere moitié du tab
+	close(tube[0]); // Le fils ne lit pas dans le tube
+	i = 0; // A partir du début du tab
+	
+	// Parcours du tab
+	for (i;i<TAILLE/2;i++) {
+		somme+=tableau[i];
+	}
+
+	// Envoie de la somme au processus padre
+	write(tube[1], &somme, sizeof(int));
+
+	close(tube[1]); // Fermeture du tube en ecriture
+
+	printf("le fils a terminé");
+	exit(EXIT_SUCCESS);
+	
+	break;
+default: //processus pere calcule somme dans 2e moitié du tab
+	i = TAILLE/2; // A partir de la moitié
+
+	// Parcours du tab
+	for (i;i<TAILLE;i++) {
+		somme+=tableau[i];
+	}
+
+	// Récupération de la somme du filston
+	read(tube[0],&sommeTotale,sizeof(int));
+	close(tube[0]);
+	
+	// Calcul de la somme finale
+	sommeFinale+=somme;
+
+	//Attend la terminaison du fils
+	wait(&retourfils);
+
+	//Affiche le resultat final
+	printf("cumul obtenu");
+	exit(EXIT_SUCCESS);
+	break;
+}
+
+
+
