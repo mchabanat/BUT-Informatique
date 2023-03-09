@@ -1,0 +1,83 @@
+git pull --> recevoir
+git push --> envoyer
+git log  --> voir l'historique des commits
+git commit 
+       -m "V1" --> -m pour donner un nom
+       -am --> Commit tous les fichiers qui ont été sauvegardés
+git checkout <numero_du_comit> ou <nom d'une branche>  -->  se déplacer de branche/commits en branche/commits*
+git branch --> affiche les branches
+git branch -d --> supprime une branche
+git config -l --> Données du git
+       --global core.editor "notepad" --> pour ouvrir un éditeur de texte lors des commits
+git status --> Etats des commits
+git add fic1 fic2 dos1--> selectionne les ficheirs/dossiers à sauvegarder
+git add . --> selectionne tout le contenu du dossier
+git rm --cached fic1 fic2 : retire des fichiers de la zone de transit
+git reset : retire tous les fichiers de la zone de transit
+fichier .gitignore : fichier texte listant les fichiers à exclure du add .
+
+
+
+working directory --> staging area --> repository
+
+git status : vert pour staging area
+         rouge pour working directory
+
+
+working directory --> staging area : git add
+staging area --> working directory : git reset/rm
+staging area --> repository : git commit
+
+
+--------------------------------------------------------------------------------
+
+--> Revenir à un code precedent juste pour regarder
+--> Restoration d'une ancienne version en conservant grace à un commit
+                                       en écrasant les ancienne données
+
+git log --> historique des commits
+        --oneline --> plus synthetique
+        -n x --> affiche les x derniers commits
+        --author="Arthur" --> Affiche tous les commits de "Arthur" dans un projet
+        --grep="chaine a chercher" -- > renvoie tous les commits composés de la chaine
+    --fichier  --> les commits ayant modifié tel fichier
+        --before="2021-7-1 --> commits avant telle date (synthaxe tolérante)
+        --after="1 week ago" --> commits après telle date (synthaxe tolérante)
+
+git diff --> montre les modifications faites depuis le dernier commit
+         nomDossier --> seulement sur tel fichier
+         idCommit --> modifications faites depuis tel commmit
+         idCommit1 idCommit2 --> compare les modifications entre 2 commits 
+                             fic1 fic2 --> uniquement sur tel/s fichier/s
+
+HEAD : commit le plus récent
+git checkout numero/nomDuneBranche  -->  se déplacer de branche/commits en branche/commits*
+             master --> Revient au commit le plus récent
+             -f --> forcer le retour, en effaçant les modifications apportées au bakasabl
+
+Branche : créer une branche pour faire des modifications temporaires 
+
+TAGGER :
+git tag --> liste des tags posés
+        nomDuTag --> Taggue le commit actuel
+        --delete/-d nomDuTag --> Supprimer le tag
+git checkout nomDuTag --> Retourne sur le commit ayant le tag
+
+--------------------------------------------------------------------------------
+
+git config credential.helper
+
+git clone URL-depot
+          URL-depot chemin-dossier
+          --depth=N URL-depot --> clone partiel avec profondeur du projet
+
+git branch --> affiche les branches
+           -M --> préciser le nom
+           -d --> supprime une branche
+
+git remote --> crééer/ spprimer/ renommer/ lister une conexion
+            -v -->
+           add origin URL-depot --> crééer une conexion
+           rename --> renommer la conexion
+
+git push -u origin master --> dire que origin est par défaut
