@@ -1,0 +1,87 @@
+/* 1 */
+/* Etape1 créer le type liste de numéro de tel */
+CREATE TYPE typeNulTel AS TABLE OF VARCHAR2(10);
+
+/* Etape2 Créer ma table tIntervenant*/
+CREATE TABLE tIntervenant 
+(
+	pkNom VARCHAR2(50) PRIMARY KEY,
+	prenom VARCHAR2(50) NOT NULL,
+	lTelephones typeNulTel
+)
+NESTED TABLE lTelephones STORE AS tIntervenant_nt1; /* Créé une table représentant "lTelephones" permettant de stocker les numeros de téléphones */
+
+
+
+
+
+
+
+/* 2 */
+CREATE TYPE typeSpecialite AS OBJECT
+(
+	Domaine VARCHAR2(20),
+	Technologie VARCHAR2(20)
+);
+
+CREATE TYPE typeSpecialiteTable AS TABLE OF typeSpecialite;
+
+CREATE TABLE tIntervenant 
+(
+	pkNom VARCHAR2(50) PRIMARY KEY,
+	prenom VARCHAR2(50) NOT NULL,
+	lSpecialites typeSpecialiteTable
+)
+NESTED TABLE lSpecialites STORE AS tIntervenant_nt2;
+
+
+
+
+
+
+
+/* 3 */
+CREATE TYPE bureauInfo AS OBJECT
+(
+	centre VARCHAR2(10),
+	batiment VARCHAR2(10),
+	numero NUMBER(3)
+);
+
+CREATE TYPE typeNulTel AS TABLE OF VARCHAR2(10);
+
+CREATE TYPE typeSpecialite AS OBJECT
+(
+	Domaine VARCHAR2(20),
+	Technologie VARCHAR2(20)
+);
+CREATE TYPE typeSpecialiteTable AS TABLE OF typeSpecialite;
+
+CREATE TABLE tIntervenant 
+(
+	pkNom VARCHAR2(50) PRIMARY KEY,
+	prenom VARCHAR2(50) NOT NULL,
+	bureau bureauInfo,
+	lTelephones typeNulTel,
+	lSpecialites typeSpecialiteTable
+)
+NESTED TABLE lTelephones STORE AS tIntervenant_nt1
+NESTED TABLE lSpecialites STORE AS tIntervenant_nt2;
+
+
+
+
+
+
+
+/* 4 */
+INSERT INTO tIntervenant 
+VALUES ('Crozat','Stephane',bureauInfo('PG','K',256),typeNulTel('0687990000','0912345678','0344231234'),typeSpecialiteTable(typeSpecialite('BD','SGBDR'),typeSpecialite('Doc','XML'),typeSpecialite('BD','SGBDRO')));
+
+/* 5 */
+SELECT i.pknom, t.* /* Signifie qu'on veut acceder à tous les numeros de pkNom */
+FROM tIntervenant i, TABLE(i.ltelephones) t;
+
+/* 6 */
+SELECT i.pkNom, s.*
+FROM tIntervenant i, TABLE(i.lSpecialites) s;

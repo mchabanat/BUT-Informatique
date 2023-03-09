@@ -1,0 +1,8 @@
+Intéractions Entreprise - client
+1. Devis
+2. Bon de commande
+3. Bon de livraison (envoi des produits)
+4. Facture
+5. Règlement
+
+page 20 du sujet à la fin du premier tp

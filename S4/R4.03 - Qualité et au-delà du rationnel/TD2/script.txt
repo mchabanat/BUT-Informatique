@@ -1,0 +1,49 @@
+/* 1 */
+CREATE TYPE Metadonnee AS OBJECT 
+(
+	auteur VARCHAR2(100),
+	geoloc VARCHAR2(100),
+	dateInscription DATE
+);
+
+CREATE TYPE Lien AS OBJECT 
+(
+	uri VARCHAR2(50),
+	relation VARCHAR2(50)
+);
+CREATE TYPE Liens AS TABLE OF Lien;
+
+CREATE TABLE tweet 
+(
+	uri VARCHAR2(50) PRIMARY KEY,
+	texte VARCHAR2(255) NOT NULL,
+	objetMIME BLOB,
+	dateHeure DATE NOT NULL,
+	metadonnees Metadonnee,
+	links Liens
+) NESTED TABLE links STORE AS liens_nt1;
+
+/* 2 */
+INSERT INTO tweet (uri, texte, dateHeure, metadonnees, links)
+VALUES ('Ma-photo1','Photo prise lors d une soirée avec les amis','12/05/09',Metadonnee('X. Tintin','43.834526782236814 -0.3515625','03/04/08'),Liens(Lien(NULL, NULL),Lien('Ma-Photo2','Thème'),Lien('Ma-Photo12','Réponse'));
+
+INSERT INTO tweet (uri, texte, dateHeure, metadonnees, links)
+VALUES ('Photo-Belle','Photo d une belle artiste','16/10/14',Metadonnee('Y. Dupond','33.43144133557529 34.453125','03/04/08'),Liens(Lien('Chanson12','Réponse'));
+
+/* 3- Trouver les tweets dont l’auteur est « Dupond ». */
+SELECT * 
+FROM tweet 
+WHERE metadonnees.auteur = 'Y. Dupond';
+
+/* 4- Modifier la relation entre les tweets « Ma-Photo1 » et « Ma-Photo12 » en similaire. */
+
+
+/* 5- Ajouter le lien (pop, même catégorie) au tweet « Photo-Belle ». */
+
+
+/* 6- Lister les liens (URI et relation) du tweet « Photo-Belle». */
+
+
+/* 7- Trouver les tweets similaires au tweet dont le texte commence par « Master ». */
+
+

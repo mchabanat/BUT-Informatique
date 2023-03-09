@@ -1,0 +1,133 @@
+/* PARTIE 1 */
+/* 1 */ 
+CREATE TABLE emp2 
+(
+	numEmp NUMBER(4) PRIMARY KEY,
+	nomEmp VARCHAR2(25) NOT NULL, 
+	salaire NUMBER(6)
+);
+
+/* 2 */ 
+CREATE OR REPLACE TYPE Coordonnee AS OBJECT 
+( ville VARCHAR2(50), CP VARCHAR2(5), tel VARCHAR2(10), fax VARCHAR2(10) );
+
+ALTER TABLE emp2 
+ADD coord Coordonnee;
+
+
+/* 3 */
+DECLARE
+	coord2 Coordonnee := Coordonnee('Anglet','64200',NULL,NULL);
+	coord3 Coordonnee := Coordonnee('Anglet','64200','0698098989',NULL);
+	coord14 Coordonnee := Coordonnee('Lyon','69000','0472546585',NULL);
+	coord15 Coordonnee := Coordonnee('Paris','75000',NULL,NULL);
+	coord16 Coordonnee := Coordonnee('Grenoble','38001',NULL,NULL);
+	coord17 Coordonnee := Coordonnee('Lyon','69000','0478556585',NULL);
+	coord18 Coordonnee := Coordonnee('Anglet','64200',NULL,NULL);
+BEGIN
+	INSERT INTO emp2 
+	VALUES (2,'XAVIER Richard',NULL,coord2);
+	INSERT INTO emp2 
+	VALUES (3,'NICOLLE Chris',NULL,coord3);
+	INSERT INTO emp2 
+	VALUES (14,'DUPUIS Yvonne',NULL,coord14);
+	INSERT INTO emp2 
+	VALUES (15,'DUPOND Jean',NULL,coord15);
+	INSERT INTO emp2 
+	VALUES (16,'CRINIERE Belle',NULL,coord16);
+	INSERT INTO emp2 
+	VALUES (17,'AUBERT Louis',NULL,coord17);
+	INSERT INTO emp2 
+	VALUES (18,'MAURI John',NULL,coord18);
+END;
+
+/* 4 */ 
+DECLARE
+BEGIN
+	UPDATE emp2 SET salaire = 30000 WHERE numEmp = 2;
+	UPDATE emp2 SET salaire = 20000 WHERE numEmp = 3;
+END;
+
+/* 5 */ 
+DECLARE
+BEGIN
+	UPDATE emp2 SET salaire = &val WHERE numEmp = &num;
+END;
+
+/* 6 */
+DECLARE
+	CURSOR villes IS SELECT DISTINCT(e.coord.ville) FROM emp2 e;
+	uneVille e.coord.ville%TYPE;
+BEGIN
+    OPEN villes;
+	LOOP 
+		FETCH villes INTO uneVille; 
+		dbms_output.put_line(uneVille);  
+	END LOOP; 
+END;
+
+/* 7 */
+DECLARE
+BEGIN
+    SELECT SUM(DISTINCT(emp2.coordonnee.ville)) FROM emp2;
+END;
+
+/* 8 */
+DECLARE
+BEGIN
+    SELECT * FROM emp2 WHERE emp2.coordonnee.ville = 'ANGLET';
+END;
+
+/* 9 */
+DECLARE
+BEGIN
+    SELECT * FROM emp2 WHERE coordonnee.tel IS NOT NULL;
+END;
+
+/* 10 */
+/* pas la table DEPT */
+
+/* 11 */
+DECLARE
+BEGIN
+    UPDATE emp2 SET emp2.coordonnee.tel = 0465859632 AND emp2.coordonnee.fax = 0565859565 WHERE emp2.NUMEMP = 2;
+END;
+
+
+/* PARTIE 2 */
+
+CREATE OR REPLACE PROCEDURE insert_emp (num_emp IN NUMBER, nom_complet IN VARCHAR2, salaire IN NUMBER, nom_ville IN VARCHAR2, code_postal IN NUMBER, num_tel IN NUMBER, fax IN VARCHAR2)  
+AS 
+BEGIN 
+	INSERT INTO emp (NUMEMP, NOMCOMPLET, Salaire, Ville, CP, Tel, Fax) 
+	VALUES (num_emp,nom_complet,salaire,nom_ville,code_postal,num_tel,fax); 
+END;
+
+
+CREATE OR REPLACE PROCEDURE maj_emp (nom_emp IN VARCHAR2, new_salaire IN NUMBER)
+AS salaire NUMBER(9);
+BEGIN 
+	UPDATE emp SET salaire = new_salaire
+		WHERE NOMEMP = nom_emp;
+END;
+
+
+CREATE OR REPLACE FUNCTION count_emp
+RETURN NUMBER IS 
+	nb_emp NUMBER(4);
+BEGIN
+	SELECT COUNT(*) INTO nb_emp FROM emp;
+	
+	RETURN nb_emp;
+END;
+
+
+CREATE OR REPLACE FUNCTION count_emp (nom_ville IN VARCHAR2)
+RETURN NUMBER IS 
+	nb_emp NUMBER(4);
+BEGIN
+	SELECT COUNT(*) INTO nb_emp FROM emp WHERE Ville = nom_ville;
+	
+	RETURN nb_emp;
+END;
+
