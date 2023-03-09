@@ -1,4 +1,3 @@
-Cocheril | 19 | tcocheril@gmail.com | 30
-qzdqzdqzd | 19 | qzdqzdqzd@gmail.com | 30
-qzdqzdqzd | 19 | qzdqzdqzd@gmail.com | 30
-qzdqzdqzd | 19 | mchabanat@iutbayonne.univ-pau.fr | 30
+Arthur|20|almenn@iutbayonne.univ-pau.fr|60000
+Titouan|19|tcocheril01@iutbayonne.univ-pau.fr|2
+Matis|20|mchabanat|9
