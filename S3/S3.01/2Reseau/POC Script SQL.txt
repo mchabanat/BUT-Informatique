@@ -1,0 +1,91 @@
+-- Créer la table Playlist
+CREATE TABLE Playlist (
+  id INTEGER PRIMARY KEY,
+  nom TEXT,
+  description TEXT
+);
+
+-- Créer la table Musique
+CREATE TABLE Musique (
+  id INTEGER PRIMARY KEY,
+  titre TEXT,
+  auteur TEXT
+);
+
+-- Créer la table AssocMusiquePlaylist
+CREATE TABLE AssocMusiquePlaylist (
+  id_musique INTEGER,
+  id_playlist INTEGER,
+  PRIMARY KEY (id_musique, id_playlist),
+  FOREIGN KEY (id_musique) REFERENCES Musique(id),
+  FOREIGN KEY (id_playlist) REFERENCES Playlist(id)
+);
+
+-- Peupler la table Musique
+INSERT INTO musique (id, titre, auteur) 
+VALUES (1, 'Blinding Lights', 'The Weeknd'), 
+       (2, 'Savage', 'Megan Thee Stallion'), 
+       (3, 'Dance Monkey', 'Tones and I'), 
+       (4, 'SeÃ±orita', 'Shawn Mendes et Camila Cabello'), 
+       (5, 'The Box', 'Roddy Ricch'), 
+       (6, 'Roses\' Imanbek Remix', 'SAINt JHN'), 
+       (7, 'Say So', 'Doja Cat'), 
+       (8, 'No Guidance', 'Drake feat. Chris Brown'), 
+       (9, 'Circles', 'Post Malone'), 
+       (10, 'Good As Hell', 'Lizzo'), 
+       (11, 'High Hopes', 'Panic! At The Disco'), 
+       (12, 'Truth Hurts', 'Lizzo'), 
+       (13, 'Someone You Loved', 'Lewis Capaldi'),
+       (14, 'Sunflower', 'Post Malone & Swae Lee'), 
+       (15, '10,000 Hours', 'Justin Bieber feat. Dan + Shay'),
+       (16, 'Don\'t Start Now', 'Dua Lipa'), 
+       (17, 'Adore You', 'Harry Styles'), 
+       (18, 'If The World Was Ending', 'JP Saxe feat. Julia Michaels'), 
+       (19, 'Highway To Hell', 'AC/DC'), 
+       (20, 'Old Town Road', 'Lil Nas X'), 
+       (21, 'Rain On Me', 'Lady Gaga et Ariana Grande'), 
+       (22, 'Call You Mine' , 'The Chainsmokers feat. Bebe Rexha'), 
+       (23, 'Bad Guy', 'Billie Eilish'), 
+       (24, 'Lose You To Love Me', 'Selena Gomez'), 
+       (25, 'I Don\'t Care', 'Ed Sheeran & Justin Bieber'), 
+       (26, 'Heatwaves', 'Glass Animals'), 
+       (27, 'Memories', 'Maroon 5'), 
+       (28, 'Everything I Wanted', 'Billie Eilish'), 
+       (29, 'Life Is Good', 'Future feat. Drake'), 
+       (30, 'Never Really Over', 'Katy Perry'), 
+       (31, 'RITMO', 'Black Eyed Peas & J Balvin'), 
+       (32, 'Panini', 'Lil Nas X'), 
+       (33, 'Sucker', 'Jonas Brothers'), 
+       (34, 'Que Calor', 'Major Lazer feat. J Balvin & El Alfa'), 
+       (35, 'God\'s Country', 'Blake Shelton'), 
+       (36, 'You Need To Calm Down', 'Taylor Swift'), 
+       (37, 'Beautiful People', 'Ed Sheeran feat. Khalid'), 
+       (38, 'Let Me Down Slowly', 'Alec Benjamin'), 
+       (39, 'Goodbyes', 'Post Malone feat. Young Thug'), 
+       (40, 'Tempo', 'Lizzo feat. Missy Elliott'), 
+       (41, 'All The Time', 'Zara Larsson'), 
+       (42, 'Higher Love', 'Kygo & Whitney Houston'), 
+       (43, 'Someone Like You', 'Adele'), 
+       (44, 'Old Town Road Remix', 'Lil Nas X feat. Billy Ray Cyrus'), 
+       (45, 'Nothing Breaks Like a Heart', 'Mark Ronson feat. Miley Cyrus'), 
+       (46, 'Alone', 'Halsey'), 
+       (47, 'I\'m Not Alone', 'Calvin Harris'), 
+       (48, 'Talk', 'Khalid'), 
+       (49, 'Giant', 'Calvin Harris & Rag'n'Bone Man'), 
+       (50, 'Bad Liar', 'Imagine Dragons');
+
+-- Peupler la table Playlist
+INSERT INTO Playlist (id, nom, description)
+VALUES (1, 'Pop Hits', 'The best pop songs of 2020'),
+       (2, 'R&B Classics', 'Timeless R&B tunes'),
+       (3, 'Rock Anthems', 'Rock classics that defined a generation'),
+       (4, 'Summer Jams', 'Feel-good summer songs'), 
+       (5, 'EDM Bangers', 'Electronic dance music hits'); 
+
+-- Peupler l'association AssocMusiquePlaylist
+INSERT INTO AssocMusiquePlaylist (id_musique, id_playlist)
+VALUES (1, 1), (2, 1), (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1), (9, 1), (10, 1), 
+       (11, 2), (12, 2), (13, 2), (14, 2), (15, 2), (16, 2), (17, 2), (18, 2), (19, 2), (20, 2),
+       (21, 3), (22, 3), (23, 3), (24, 3), (25, 3), (26, 3), (27, 3), (28, 3), (29, 3), (30, 3),
+       (31, 4), (32, 4), (33, 4), (34, 4), (35, 4), (36, 4), (37, 4), (38, 4), (39, 4), (40, 4), 
+       (41, 5), (42, 5), (43, 5), (44, 5), (45, 5), (46, 5), (47, 5), (48, 5), (49, 5), (50, 5);

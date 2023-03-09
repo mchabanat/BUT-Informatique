@@ -1,0 +1,22 @@
+rappel : personne scanner scanne stcode pour pouvoir verifier licence
+
+qr code pas pris car on voulait étudier un autre type de code barre
+code barre type spotify : technologie interessante 
+			  qui utilise la hauteur des barres et non pas la largeur
+on va donc réaliser l'encodage et le décodage des codes et des licences
+
+
+
+Notes 
+revoir les algo : 
+pas de == 
+revoir les noms de variables
+mettre un titre
+
+représenter les données
+
+conversion des caractères : effectuer une seule boucle car une seule table
+
+barre : sur 4 tailles et pas sur 8
+
+coder en objets
